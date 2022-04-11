@@ -353,7 +353,13 @@ mqtt && (ip.dst == 10.0.2.15 && tcp.dstport == 46295)
 && (mqtt.msgtype == 4 || mqtt.msgtype == 2 || mqtt.msgtype == 9)
 ```
 
-Returning three packets.
+Returning three packets:
+
+| No.  | Type          |
+| ---- | ------------- |
+| 4764 | Connect ACK   |
+| 4766 | Subscribe ACK |
+| 4768 | Publish ACK   |
 
 ## Question 10
 
