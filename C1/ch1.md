@@ -112,15 +112,23 @@ Assuming that with non existing resources we are referring to responses which ha
 
 ```python
 from json import loads
-from difflib import Differ
-from IPython import embed
 
 
-def pkt_parser(pkt, rel_path):
+def pkt_parser(pkt, path):
+    if path == "":
+        return pkt["_source"]["layers"]
     out = pkt["_source"]["layers"]
-    for el in rel_path.split("/"):
+    for el in path.split("/"):
         out = out[el]
     return out
+
+
+def find_key(pkt, path):
+    try:
+        pkt_parser(pkt, path)
+        return True
+    except KeyError:
+        return False
 
 
 def q4(cap):
@@ -131,7 +139,7 @@ def q4(cap):
             and pkt_parser(pkt, "coap/coap.code") == "132"
         ):
             res.append(pkt)
-    print("found {} 404 response packets".format(len(res)))
+    print("found {} [404] response packets".format(len(res)))
 
     reqs = []
     for r in res:
@@ -142,10 +150,10 @@ def q4(cap):
                 and pkt_parser(pkt, "coap/coap.token") == token
                 and pkt_parser(pkt, "coap/coap.code") == "1"
             ):
-                try:
+                if find_key(pkt, "coap/opt.observe"):
                     if pkt_parser(pkt, "coap/opt.observe") == "0":
                         reqs.append(pkt)
-                except KeyError as e:
+                else:
                     reqs.append(pkt)
     print("found {} matching responses".format(len(reqs)))
 
@@ -164,7 +172,7 @@ By running the script we get the following result:
 
 ```shell
 $ p app.py
-found 8 404 response packets
+found 8 [404] response packets
 found 6 matching responses
 ```
 
@@ -184,14 +192,12 @@ We can easily modify the previous script by replacing `q4` with `q5` which does 
 def q5(cap):
     res = []
     for pkt in cap:
-        try:
+        if find_key(pkt, "mqtt/mqtt.topic") and find_key(pkt, "mqtt/mqtt.passwd"):
             if (
                 "factory/department" in pkt_parser(pkt, "mqtt/mqtt.topic")
                 and pkt_parser(pkt, "mqtt/mqtt.passwd") == "admin"
             ):
                 res.append(pkt)
-        except KeyError as e:
-            pass
     print("found {} matching packets".format(len(res)))
 ```
 
@@ -212,7 +218,7 @@ found 5 matching packets
 
 ## Question 6
 
-How many clients connected to the public broker  “mosquitto” have specified a will message?
+How many clients connected to the public broker  "mosquitto" have specified a will message?
 
 ### Answer
 
@@ -257,36 +263,35 @@ To answer this question we need a slight modification of the usual script which 
 ```python
 def q7(cap):
     res = []
-    pubs = []
     for pkt in cap:
-        try:
-            if pkt_parser(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.qos") == "2":
-                pubs.append(pkt)
-        except KeyError:
-            pass
-    print("found {} packets with QoS=2".format(len(pubs)))
+        if find_key(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.qos") and find_key(
+            pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype"
+        ):
+            if (
+                pkt_parser(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.qos") == "2"
+                and pkt_parser(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype") == "3"
+            ):
+                res.append(pkt)
+    print("found {} packets with QoS=2, ".format(len(res)), end="")
 
-    for p in pubs:
-        msgid = pkt_parser(p, "mqtt/mqtt.msgid")
+    for pkt in res:
+        msgid = pkt_parser(pkt, "mqtt/mqtt.msgid")
         for pkt in cap:
-            try:
+            if find_key(pkt, "mqtt/mqtt.msgid") and find_key(pkt, "mqtt/mqtt.mgstype"):
                 if (
                     pkt_parser(pkt, "mqtt/mqtt.msgid") == msgid
                     and pkt_parser(pkt, "mqtt/mqtt.mgstype") == "6"
                 ):
-                    res.append(pkt)
-            except KeyError:
-                pass
-    print("found {} matching packets".format(len(res)))
+                    res.remove(pkt)
+    print("of which {} have no PUBREL response".format(len(res)))
 ```
 
 ```
-$ p app.py 
-found 92 packets with QoS=2
-found 0 matching packets
+$ p app.py
+found 92 packets with QoS=2, of which 92 have no PUBREL response
 ```
 
-Again we got no matching packets.
+This is because there are no `PUBREL`  at all in the capture.
 
 ## Question 8
 
@@ -301,21 +306,19 @@ def q8(cap):
     sum = 0
     count = 0
     for pkt in cap:
-        try:
+        if not find_key(pkt, "_ws.malformed") and find_key(pkt, "mqtt/mqtt.clientid"):
             if pkt_parser(pkt, "mqtt/mqtt.clientid") == "":
-                try:
+                if find_key(pkt, "mqtt/mqtt.willtopic_len"):
                     sum += int(pkt_parser(pkt, "mqtt/mqtt.willtopic_len"))
                     count += 1
-                except KeyError:
-                    pass
-        except KeyError:
-            pass
-    print("average will topic length: {}".format(sum / count))
+    print(
+        "found {} packets. average will topic length: {}".format(count, (sum / count))
+    )
 ```
 
 ```
 $ p app.py
-average will topic length: 37.054054054054056
+found 37 packets. average will topic length: 37.054054054054056	
 ```
 
 ## Question 9
@@ -353,13 +356,13 @@ mqtt && (ip.dst == 10.0.2.15 && tcp.dstport == 46295)
 && (mqtt.msgtype == 4 || mqtt.msgtype == 2 || mqtt.msgtype == 9)
 ```
 
-Returning three packets:
+Returning three packets, some of which contain more than one ACK in the same packet. By looking at them in Wireshark we can see that there are 5 ACKs in total, divided in the following way:
 
-| No.  | Type          |
-| ---- | ------------- |
-| 4764 | Connect ACK   |
-| 4766 | Subscribe ACK |
-| 4768 | Publish ACK   |
+| ACK type      | #    |
+| ------------- | ---- |
+| Connect ACK   | 1    |
+| Subscribe ACK | 3    |
+| Publish ACK   | 1    |
 
 ## Question 10
 
@@ -374,15 +377,17 @@ def q10(cap):
     sum = 0
     count = 0
     for pkt in cap:
-        try:
+        if (
+            find_key(pkt, "mqtt/mqtt.ver")
+            and find_key(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype")
+            and find_key(pkt, "mqtt/mqtt.len")
+        ):
             if (
                 pkt_parser(pkt, "mqtt/mqtt.ver") == "3"
                 and pkt_parser(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype") == "1"
             ):
                 sum += int(pkt_parser(pkt, "mqtt/mqtt.len"))
                 count += 1
-        except KeyError:
-            pass
     print("average message length: {}".format(sum / count))
 ```
 
