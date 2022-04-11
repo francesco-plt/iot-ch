@@ -63,7 +63,7 @@ By doing that we can find a COAP request with the following characteristics: `Co
 
 I found a matching response by looking for a packet with the same token, which is `67c7229a`. The following result came up: `Constrained Application Protocol, Non-Confirmable, 2.02 Deleted, MID:844`
 
-| MID              | 12935               |
+| MID              | 844                 |
 | ---------------- | ------------------- |
 | Source IP        | `localhost`         |
 | Destination IP   | `localhost`         |
@@ -190,31 +190,46 @@ We can easily modify the previous script by replacing `q4` with `q5` which does 
 
 ```python
 def q5(cap):
+    src = []
     res = []
+
     for pkt in cap:
-        if find_key(pkt, "mqtt/mqtt.topic") and find_key(pkt, "mqtt/mqtt.passwd"):
-            if (
-                "factory/department" in pkt_parser(pkt, "mqtt/mqtt.topic")
-                and pkt_parser(pkt, "mqtt/mqtt.passwd") == "admin"
+        if find_key(pkt, "mqtt/mqtt.passwd"):
+            if pkt_parser(pkt, "mqtt/mqtt.passwd") == "admin":
+                src.append(
+                    [pkt_parser(pkt, "ip/ip.src"), pkt_parser(pkt, "tcp/tcp.srcport")]
+                )
+
+    for pkt in cap:
+        for s in src:
+            if find_key(pkt, "mqtt/mqtt.topic") and find_key(
+                pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype"
             ):
-                res.append(pkt)
+                if (
+                    "factory/department" in pkt_parser(pkt, "mqtt/mqtt.topic")
+                    and pkt_parser(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype") == "3"
+                    and pkt_parser(pkt, "ip/ip.src") in s[0]
+                    and pkt_parser(pkt, "tcp/tcp.srcport") in s[1]
+                ):
+                    if (
+                        pkt_parser(pkt, "ip/ip.src") in s[0]
+                        and pkt_parser(pkt, "tcp/tcp.srcport") in s[1]
+                    ):
+                        res.append(pkt)
+
     print("found {} matching packets".format(len(res)))
 ```
 
-It gives the following output:
+In the first loop we filter all the packets which have MQTT password set to `admin`, by annotating their source IP and port. Then for each packet in the capture we check if there's a MQTT message of type `PUBLISH` which contain the substring `factory/department` in the topic field. Then we match those results with each ip-port tuple. The condition on the topic is less restrictive than the requested one, but in this case I left the code as it is because the query returns zero packets as result, which means that restricting the scope of the query would not change the final outcome. When ran the script gives the following output:
 
 ```sh
 $ p app.py 
-found 0 matching packets
+found 13 matching packets
 ```
 
-No matching packets with the desired constraints. There are some packets with password set as "admin" which have `factory/department*/+` as will topic:
+There are 13 matching packets in total with the desired constraints.
 
-```
-$ p app.py
-replaced topic with will topic
-found 5 matching packets
-```
+**Note**: I interpreted "containing" as the fact that the given substring should be present in the topic field of relevant packets. Another possible assumption could also be that the plus symbol is intended as a single level wilcard. In this case there should be zero matching packets. I choose the first option since single level wildcards are only relevant in subscribing messages, but we are looking for publish messages.
 
 ## Question 6
 
@@ -396,4 +411,4 @@ $ p app.py
 average message length: 63.59574468085106
 ```
 
-The difference in message length between packets may be caused by the fact that MQTT packets may have lots of different optional fields, which all contribute to determine a noticeable difference in message length.
+This discrepancy is due to the fact that MQTT packets may have lots of different optional fields, which all contribute to determine a noticeable difference in message length.

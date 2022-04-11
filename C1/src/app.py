@@ -67,6 +67,37 @@ def q5(cap):
     print("found {} matching packets".format(len(res)))
 
 
+def q5v2(cap):
+    src = []
+    res = []
+
+    for pkt in cap:
+        if find_key(pkt, "mqtt/mqtt.passwd"):
+            if pkt_parser(pkt, "mqtt/mqtt.passwd") == "admin":
+                src.append(
+                    [pkt_parser(pkt, "ip/ip.src"), pkt_parser(pkt, "tcp/tcp.srcport")]
+                )
+
+    for pkt in cap:
+        for s in src:
+            if find_key(pkt, "mqtt/mqtt.topic") and find_key(
+                pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype"
+            ):
+                if (
+                    "factory/department" in pkt_parser(pkt, "mqtt/mqtt.topic")
+                    and pkt_parser(pkt, "mqtt/mqtt.hdrflags_tree/mqtt.msgtype") == "3"
+                    and pkt_parser(pkt, "ip/ip.src") in s[0]
+                    and pkt_parser(pkt, "tcp/tcp.srcport") in s[1]
+                ):
+                    if (
+                        pkt_parser(pkt, "ip/ip.src") in s[0]
+                        and pkt_parser(pkt, "tcp/tcp.srcport") in s[1]
+                    ):
+                        res.append(pkt)
+
+    print("found {} matching packets".format(len(res)))
+
+
 # How many publishes with QoS 2
 # don’t receive the PUBREL?
 def q7(cap):
@@ -132,7 +163,7 @@ def q10(cap):
 
 def main():
     cap = loads(open("cap.json").read())
-    q10(cap)
+    q4(cap)
 
 
 if __name__ == "__main__":
