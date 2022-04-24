@@ -1,0 +1,428 @@
+[
+    {
+        "id": "3ec6e2415f0b125f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d885475b9b846d87",
+        "type": "file in",
+        "z": "3ec6e2415f0b125f",
+        "name": "input file",
+        "filename": "/Users/francesco/iot-ch/CH2/src/iot-feeds.csv",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "ae9eba12b12b4f79"
+            ]
+        ]
+    },
+    {
+        "id": "ae9eba12b12b4f79",
+        "type": "csv",
+        "z": "3ec6e2415f0b125f",
+        "name": "csv parser",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "45c66344cdec8128"
+            ]
+        ]
+    },
+    {
+        "id": "667aced18647d096",
+        "type": "debug",
+        "z": "3ec6e2415f0b125f",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "45c66344cdec8128",
+        "type": "switch",
+        "z": "3ec6e2415f0b125f",
+        "name": "filter 3751",
+        "property": "msg.payload.code",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "3751",
+                "vt": "num",
+                "v2": "3851",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "667aced18647d096",
+                "dbea42a98cf58588",
+                "f387866f06fabf9c"
+            ]
+        ]
+    },
+    {
+        "id": "77d2b66d2ff55483",
+        "type": "inject",
+        "z": "3ec6e2415f0b125f",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "d885475b9b846d87"
+            ]
+        ]
+    },
+    {
+        "id": "8ce85ea601d14882",
+        "type": "mqtt out",
+        "z": "3ec6e2415f0b125f",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "597c7957cffb2ca2",
+        "x": 1030,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "dbea42a98cf58588",
+        "type": "function",
+        "z": "3ec6e2415f0b125f",
+        "name": "fields 1, 2, 5",
+        "func": "var field1 = msg.payload.field1;\nvar field2 = msg.payload.field2;\nvar field5 = msg.payload.field5;\nvar ch_id = \"1712705\"\n\nmsg.topic = \"channels/\" + ch_id + \"/publish\"\nmsg.payload = \"field1=\" + field1 + \"&field2=\" + field2 + \"&field5=\" + field5 + \"&status=MQTTPUBLISH\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "ab14185a7261cff2"
+            ]
+        ]
+    },
+    {
+        "id": "abee9f0a487caad5",
+        "type": "ui_chart",
+        "z": "3ec6e2415f0b125f",
+        "name": "",
+        "group": "6ca88808f230b383",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "RSSI",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab14185a7261cff2",
+        "type": "delay",
+        "z": "3ec6e2415f0b125f",
+        "name": "mqtt limiter",
+        "pauseType": "rate",
+        "timeout": "60",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 160,
+        "wires": [
+            [
+                "8ce85ea601d14882"
+            ]
+        ]
+    },
+    {
+        "id": "f387866f06fabf9c",
+        "type": "change",
+        "z": "3ec6e2415f0b125f",
+        "name": "field 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.field5",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "7e882e1e763ba57f"
+            ]
+        ]
+    },
+    {
+        "id": "7e882e1e763ba57f",
+        "type": "delay",
+        "z": "3ec6e2415f0b125f",
+        "name": "chart limiter",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 280,
+        "wires": [
+            [
+                "abee9f0a487caad5"
+            ]
+        ]
+    },
+    {
+        "id": "2bb904aedfaa0abe",
+        "type": "inject",
+        "z": "3ec6e2415f0b125f",
+        "name": "reset chart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "reset",
+        "payloadType": "msg",
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [
+                "0aab6f6f8503f3c2"
+            ]
+        ]
+    },
+    {
+        "id": "0aab6f6f8503f3c2",
+        "type": "function",
+        "z": "3ec6e2415f0b125f",
+        "name": "empty payload",
+        "func": "return {\"payload\":[], \"reset\":true};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 360,
+        "wires": [
+            [
+                "abee9f0a487caad5",
+                "7e882e1e763ba57f"
+            ]
+        ]
+    },
+    {
+        "id": "9c68d30b78953fec",
+        "type": "inject",
+        "z": "3ec6e2415f0b125f",
+        "name": "reset mqtt",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "reset",
+        "payloadType": "msg",
+        "x": 660,
+        "y": 80,
+        "wires": [
+            [
+                "e71f13e2c26121c1"
+            ]
+        ]
+    },
+    {
+        "id": "e71f13e2c26121c1",
+        "type": "function",
+        "z": "3ec6e2415f0b125f",
+        "name": "empty payload",
+        "func": "return {\"payload\":[], \"reset\":true};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 80,
+        "wires": [
+            [
+                "ab14185a7261cff2",
+                "8ce85ea601d14882"
+            ]
+        ]
+    },
+    {
+        "id": "597c7957cffb2ca2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt3.thingspeak.com",
+        "port": "1883",
+        "clientid": "KjgfKgouADIqNAYFDjc4CRM",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6ca88808f230b383",
+        "type": "ui_group",
+        "name": "CH2 chart",
+        "tab": "481d7a34401fc330",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "481d7a34401fc330",
+        "type": "ui_tab",
+        "name": "field5",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
