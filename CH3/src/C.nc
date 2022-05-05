@@ -1,7 +1,8 @@
 #include "Timer.h"
 #include "printf.h"
+#include "math.h"
 
-module Ch3C @safe()
+module C @safe()
 {
   uses interface Timer<TMilli> as Timer0;
   uses interface Leds;
@@ -26,6 +27,7 @@ implementation
     // step of the ternary conversion of pcode
     printf("DEBUG: (pcode) [%ld] -> ", pcode);
     remainder = pcode % 3;
+    pcode = floor(pcode / 3);
     printf("[%ld], remainder %ld\n", pcode, remainder);
     printfflush();
 
@@ -46,6 +48,13 @@ implementation
       printf("DEBUG - ERROR: remainder is not 0, 1 or 2\n");
       printf("DEBUG - ERROR: remainder is %ld\n", remainder);
       printfflush();
+    }
+
+    // bif the ternary conversion is done
+    // (quotient = 0), stop the timer
+    if(pcode == 0)
+    {
+      call Timer0.stop();
     }
   }
 }

@@ -98,7 +98,7 @@ implementation
 * `BlinkC` is the file we already saw
 * `Leds`, `Timer` declaration like in `BlinkC`. In this file we can also give different names to timers
 
-## How to run tinyos code + Cooja
+### How to run tinyos code + Cooja
 
 ```bash
 $ cd $APP_FOLDER
@@ -115,6 +115,7 @@ A `build` folder containing an executable will be created with the `make` comman
 1. file-> new simulation
 2. motes->add motes->create new mote type-> sky mote
 3. browsw -> apps->blink->build->telosb-> main.exe file
+4. View -> LEDs
 
 ### Another app: `printf`
 
@@ -173,7 +174,7 @@ A `build` folder containing an executable will be created with the `make` comman
 
   To simulate this, open Cooja, new simulation, skymote, etc. Before doing that you want to compile with `$ make telosb`.
 
-### Node Red + Cooja
+## Node Red + Cooja
 
 Run `$ node-red`, go to `localhost:8080`. Now:
 
@@ -193,11 +194,10 @@ We connect to the socket and we start the application:
 
   ![Schermata 2022-05-05 alle 11.40.26](assets/Schermata 2022-05-05 alle 11.40.26.png)
 
-
-### Notes
+## Notes
 
 If something's wrong, just look at the slides for a corrected version of the code
 
-### The challenge
+## The challenge
 
 Goal: collect data with the mote and sends it via MQTT to Thingspeak.

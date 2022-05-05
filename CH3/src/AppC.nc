@@ -1,4 +1,4 @@
-configuration Ch3AppC
+configuration AppC
 {
 }
 implementation

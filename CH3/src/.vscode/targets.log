@@ -1,0 +1,264 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+
+# Make data base, printed on Thu May  5 17:47:50 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+CPPFLAGS =  -I/usr/local/opt/zlib/include
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/francesco/iot-ch/CH3/src
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"bf5b1b4990ee4163837da031589a68cd.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/dfd34e8260c270da74b5c2d86d61aee4b6d56977","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 2)
+CFLAGS = -I$(TOSDIR)/lib/printf
+# environment
+PF_COLOR = 1
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-fba49769-9db6-4fb2-9057-7f99b55072c6.sock
+# environment
+VSCODE_CWD = /Users/francesco/iot-ch/CH3/src
+# environment
+PATH = /Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.spicetify:/Users/francesco/.local/bin:/Applications/ARM/bin
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+MICRO_TRUECOLOR = 1
+# environment
+LIBRARY_PATH = /opt/homebrew/lib
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+CPATH = /opt/homebrew/include
+# environment
+PKG_CONFIG_PAGH = {PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig
+# environment
+NVM_BIN = /Users/francesco/.nvm/versions/node/v14.19.0/bin
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+LDFLAGS =  -L/usr/local/opt/zlib/lib
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+CDPATH = .:~/Library/Application Support/abnerworks.Typora/:
+# environment
+HOMEBREW_GITHUB_API_TOKEN = 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
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.U5plhU9Ko6/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/francesco/iot-ch/CH3/src
+# environment
+PF_INFO = ascii title os host kernel uptime palette
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/francesco
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
+# environment
+LOGNAME = francesco
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+NVM_CD_FLAGS = -q
+# environment
+ZSH = /Users/francesco/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = mbp-m1
+# environment
+XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 3
+# environment
+STARSHIP_SESSION_KEY = 2971102532351202
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = francesco
+# makefile
+.DEFAULT_GOAL := 
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = Hyper
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.2-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 3.2.3
+# environment
+NVM_DIR = /Users/francesco/.nvm
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.28344474.28344480.5B980D8E-8FDA-406E-9A07-0CC8931FD7A8
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x4
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# makefile (from `Makefile', line 1)
+COMPONENT = Ch3C
+# automatic
+<F = $(notdir $<)
+# environment
+EDITOR = helix
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 58191
+# environment
+STARSHIP_SHELL = zsh
+# variable set hash-table stats:
+# Load=92/1024=9%, Rehash=0, Collisions=7/117=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777234, inode 30489049): 8 files, no impossibilities.
+
+# 8 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+all:
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-05 17:47:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Thu May  5 17:47:50 2022
+
+ 
+make: *** No rule to make target `all'.  Stop.
+
