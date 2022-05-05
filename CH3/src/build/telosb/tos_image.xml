@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
-    <userhash>72388C21L</userhash>
-    <platform>telosb</platform>
-    <appname>Ch3C</appname>
-    <timestamp>6273EAB9L</timestamp>
-    <uidhash>49499F24L</uidhash>
     <deluge_support>no</deluge_support>
     <username>francesco</username>
+    <timestamp>62740A0BL</timestamp>
+    <uidhash>08ED2D68L</uidhash>
+    <platform>telosb</platform>
     <hostname>tux-box</hostname>
+    <appname>C</appname>
+    <userhash>72388C21L</userhash>
   </ident>
   <image format="ihex">
 :104000005542200135D0085A82450011314000390F

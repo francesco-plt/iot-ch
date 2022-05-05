@@ -340,7 +340,7 @@ struct _reent {
 
   int __sdidinit;
 
-  void (*__cleanup)(struct _reent *arg_0xffff949c4290);
+  void (*__cleanup)(struct _reent *arg_0xffff80151290);
 
 
   struct _Bigint *_result;
@@ -380,7 +380,7 @@ struct _reent {
   struct _atexit _atexit0;
 
 
-  void (**_sig_func)(int arg_0xffff949bf300);
+  void (**_sig_func)(int arg_0xffff8014c300);
 
 
 
@@ -544,31 +544,6 @@ enum __nesc_unnamed4252 {
   TOSH_HUMIDTEMP_ADDR = 3, 
   TOSH_HUMIDITY_RESET = 0x1E
 };
-# 41 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/Timer.h"
-typedef struct __nesc_unnamed4253 {
-#line 41
-  int notUsed;
-} 
-#line 41
-TSecond;
-typedef struct __nesc_unnamed4254 {
-#line 42
-  int notUsed;
-} 
-#line 42
-TMilli;
-typedef struct __nesc_unnamed4255 {
-#line 43
-  int notUsed;
-} 
-#line 43
-T32khz;
-typedef struct __nesc_unnamed4256 {
-#line 44
-  int notUsed;
-} 
-#line 44
-TMicro;
 # 40 "/usr/lib/gcc/msp430/4.6.3/include/stdarg.h" 3
 typedef __builtin_va_list __gnuc_va_list;
 #line 102
@@ -642,7 +617,7 @@ typedef nx_struct cc2420_packet_t {
   nx_uint8_t data[];
 } __attribute__((packed)) cc2420_packet_t;
 #line 179
-enum __nesc_unnamed4257 {
+enum __nesc_unnamed4253 {
 
   MAC_HEADER_SIZE = sizeof(cc2420_header_t ) - 1, 
 
@@ -899,7 +874,7 @@ enum cc2420_security_enums {
 };
 
 
-enum __nesc_unnamed4258 {
+enum __nesc_unnamed4254 {
 
   CC2420_INVALID_TIMESTAMP = 0x80000000L
 };
@@ -912,7 +887,7 @@ typedef uint8_t am_id_t;
 typedef uint8_t am_group_t;
 typedef uint16_t am_addr_t;
 
-enum __nesc_unnamed4259 {
+enum __nesc_unnamed4255 {
   AM_BROADCAST_ADDR = 0xffff
 };
 
@@ -924,7 +899,7 @@ enum __nesc_unnamed4259 {
 
 
 
-enum __nesc_unnamed4260 {
+enum __nesc_unnamed4256 {
   TOS_AM_GROUP = 0x22, 
   TOS_AM_ADDRESS = 1
 };
@@ -933,14 +908,14 @@ typedef uint8_t uart_id_t;
 
 
 
-enum __nesc_unnamed4261 {
+enum __nesc_unnamed4257 {
   HDLC_FLAG_BYTE = 0x7e, 
   HDLC_CTLESC_BYTE = 0x7d
 };
 
 
 
-enum __nesc_unnamed4262 {
+enum __nesc_unnamed4258 {
   TOS_SERIAL_ACTIVE_MESSAGE_ID = 0, 
   TOS_SERIAL_CC1000_ID = 1, 
   TOS_SERIAL_802_15_4_ID = 2, 
@@ -948,7 +923,7 @@ enum __nesc_unnamed4262 {
 };
 
 
-enum __nesc_unnamed4263 {
+enum __nesc_unnamed4259 {
   SERIAL_PROTO_ACK = 67, 
   SERIAL_PROTO_PACKET_ACK = 68, 
   SERIAL_PROTO_PACKET_NOACK = 69, 
@@ -1036,9 +1011,34 @@ typedef nx_struct printf_msg {
   nx_uint8_t buffer[28];
 } __attribute__((packed)) printf_msg_t;
 
-enum __nesc_unnamed4264 {
+enum __nesc_unnamed4260 {
   AM_PRINTF_MSG = 100
 };
+# 41 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/Timer.h"
+typedef struct __nesc_unnamed4261 {
+#line 41
+  int notUsed;
+} 
+#line 41
+TSecond;
+typedef struct __nesc_unnamed4262 {
+#line 42
+  int notUsed;
+} 
+#line 42
+TMilli;
+typedef struct __nesc_unnamed4263 {
+#line 43
+  int notUsed;
+} 
+#line 43
+T32khz;
+typedef struct __nesc_unnamed4264 {
+#line 44
+  int notUsed;
+} 
+#line 44
+TMicro;
 # 43 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/types/Leds.h"
 enum __nesc_unnamed4265 {
   LEDS_LED0 = 1 << 0, 
@@ -1050,7 +1050,7 @@ enum __nesc_unnamed4265 {
   LEDS_LED6 = 1 << 6, 
   LEDS_LED7 = 1 << 7
 };
-typedef TMilli Ch3C__Timer0__precision_tag;
+typedef TMilli C__Timer__precision_tag;
 # 61 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/SchedulerBasicP.nc"
 enum SchedulerBasicP____nesc_unnamed4266 {
 

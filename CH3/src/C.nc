@@ -1,25 +1,27 @@
-#include "Timer.h"
-#include "printf.h"
 #include "math.h"
+#include "printf.h"
 
-module C @safe()
+module C
 {
-  uses interface Timer<TMilli> as Timer0;
-  uses interface Leds;
   uses interface Boot;
+  uses interface Timer<TMilli>;
+  uses interface Leds;
 }
 implementation
 {
-  uint32_t count = 0;
+  uint8_t remainder;
+  uint8_t count = 0;
+  uint16_t minute = 60000;
   uint32_t pcode = 10783751;
-  uint32_t remainder;
 
   event void Boot.booted()
   {
-    call Timer0.startPeriodic( 60000 ); // 1 minute
+    // testing that the boot event is working
+    printf("Booted\n");
+    call Timer.startPeriodic( minute ); // 1 minute
   }
 
-  event void Timer0.fired()
+  event void Timer.fired()
   {
     printf("DEBUG: The timer has fired [%ld]\n", count);
     count = count + 1;
@@ -54,7 +56,7 @@ implementation
     // (quotient = 0), stop the timer
     if(pcode == 0)
     {
-      call Timer0.stop();
+      call Timer.stop();
     }
   }
 }
