@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu May  5 19:16:49 2022
+# Make data base, printed on Thu May  5 17:36:56 2022
 
 # Variables
 
@@ -53,7 +53,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 VSCODE_CWD = /home/francesco
 # environment
-SSH_CONNECTION = 10.0.2.2 52222 10.0.2.15 22
+SSH_CONNECTION = 10.0.2.2 52350 10.0.2.15 22
 # environment
 PATH = /home/francesco/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/home/francesco/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/francesco/bin
 # environment
@@ -71,7 +71,7 @@ MAKERULES = /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerul
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-ad76b487-32a2-4452-be19-cf8b0223776a.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-fdfd64bd-6391-451b-8d6b-8a2822a920e8.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -137,7 +137,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 10.0.2.2 52222 22
+SSH_CLIENT = 10.0.2.2 52350 22
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -217,6 +217,7 @@ makefile:
 # Not a target:
 GNUmakefile:
 #  Implicit rule search has been done.
+ 
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
@@ -235,6 +236,6 @@ GNUmakefile:
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Thu May  5 19:16:49 2022
+# Finished Make data base on Thu May  5 17:36:56 2022
 
  

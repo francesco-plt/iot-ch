@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
-    <deluge_support>no</deluge_support>
-    <username>francesco</username>
-    <timestamp>62740A0BL</timestamp>
-    <uidhash>08ED2D68L</uidhash>
-    <platform>telosb</platform>
-    <hostname>tux-box</hostname>
-    <appname>C</appname>
     <userhash>72388C21L</userhash>
+    <deluge_support>no</deluge_support>
+    <hostname>tux-box</hostname>
+    <uidhash>B01A2056L</uidhash>
+    <platform>telosb</platform>
+    <appname>C</appname>
+    <timestamp>627416F2L</timestamp>
+    <username>francesco</username>
   </ident>
   <image format="ihex">
 :104000005542200135D0085A82450011314000390F

@@ -340,7 +340,7 @@ struct _reent {
 
   int __sdidinit;
 
-  void (*__cleanup)(struct _reent *arg_0xffff80151290);
+  void (*__cleanup)(struct _reent *arg_0xffff92079290);
 
 
   struct _Bigint *_result;
@@ -380,7 +380,7 @@ struct _reent {
   struct _atexit _atexit0;
 
 
-  void (**_sig_func)(int arg_0xffff8014c300);
+  void (**_sig_func)(int arg_0xffff92074300);
 
 
 
