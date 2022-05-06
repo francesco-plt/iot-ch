@@ -176,7 +176,7 @@ A `build` folder containing an executable will be created with the `make` comman
 
 ## Node Red + Cooja
 
-Run `$ node-red`, go to `localhost:8080`. Now:
+Run `$ node-red`, go to `localhost:8080`. Now in Cooja:
 
 <img src="assets/Schermata 2022-05-05 alle 11.35.25.png" alt="Schermata 2022-05-05 alle 11.35.25" style="zoom:50%;" />
 
@@ -184,7 +184,7 @@ Select `Serial Socket SERVER`, go back to node red and create a new `TCP Node` w
 
 <img src="assets/Schermata 2022-05-05 alle 11.38.11.png" alt="Schermata 2022-05-05 alle 11.38.11" style="zoom:67%;" />
 
-We connect to the socket and we start the application:
+We connect to the socket and we start the Cooja simulation:
 
 * Cooja:
 
@@ -196,7 +196,8 @@ We connect to the socket and we start the application:
 
 ## Notes
 
-If something's wrong, just look at the slides for a corrected version of the code
+* To run the Cooja simulation at real time you need to set the speed limit to 100%;
+* If something's wrong, just look at the slides for a corrected version of the code
 
 ## The challenge
 

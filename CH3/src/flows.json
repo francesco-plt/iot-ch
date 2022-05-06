@@ -1,10 +1,58 @@
 [
     {
+        "id": "313597a105424b34",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef130ff86e70cab2",
+        "type": "debug",
+        "z": "313597a105424b34",
+        "name": "debug print",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "785905683c4cae93",
+        "type": "tcp in",
+        "z": "313597a105424b34",
+        "name": "cooja stream",
+        "server": "client",
+        "host": "localhost",
+        "port": "60001",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": " \\n",
+        "topic": "",
+        "base64": false,
+        "tls": "",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "ef130ff86e70cab2",
+                "105f3c4677670484"
+            ]
+        ]
+    },
+    {
         "id": "105f3c4677670484",
         "type": "function",
         "z": "313597a105424b34",
         "name": "",
-        "func": "var str = msg.payload;\nvar tsPayload;\nif(!str.startsWith(\"DEBUG\")) {\n    tsPayload = JSON.parse(string);\n}\nvar field1 = msg.payload.field1;\nvar field2 = msg.payload.field2;\nvar field3 = msg.payload.field5;\nvar ch_id = \"1724994\"\n\nmsg.topic = \"channels/\" + ch_id + \"/publish\"\nmsg.payload = \"field1=\" + tsPayload[\"led0\"] + \"&field2=\" + tsPayload[\"led1\"] + \"&field3=\" + tsPayload[\"led2\"] + \"&status=MQTTPUBLISH\";\nreturn msg;",
+        "func": "var str = String(msg.payload);\nvar tsPayload;\nif(!str.startsWith(\"DEBUG\")) {\n    tsPayload = JSON.parse(string);\n}\nvar field1 = msg.payload.field1;\nvar field2 = msg.payload.field2;\nvar field3 = msg.payload.field5;\nvar ch_id = \"1724994\"\n\nmsg.topic = \"channels/\" + ch_id + \"/publish\"\nmsg.payload = \"field1=\" + tsPayload[\"led0\"] + \"&field2=\" + tsPayload[\"led1\"] + \"&field3=\" + tsPayload[\"led2\"] + \"&status=MQTTPUBLISH\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -17,5 +65,49 @@
                 "cbb82a4fc37611c5"
             ]
         ]
+    },
+    {
+        "id": "cbb82a4fc37611c5",
+        "type": "mqtt out",
+        "z": "313597a105424b34",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "621691ee28d1dc50",
+        "x": 610,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "621691ee28d1dc50",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt3.thingspeak.com",
+        "port": "1883",
+        "clientid": "Ax8jIR4dASwUJzAeDTInIgU",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     }
 ]
