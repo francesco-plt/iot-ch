@@ -1,13 +1,12 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 3.81
-# Copyright (C) 2006  Free Software Foundation, Inc.
-# This is free software; see the source for copying conditions.
-# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE.
+# GNU Make 4.2.1
+# Built for aarch64-unknown-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
 
-# This program built for i386-apple-darwin11.3.0
-
-# Make data base, printed on Thu May  5 17:47:50 2022
+# Make data base, printed on Fri May  6 08:18:11 2022
 
 # Variables
 
@@ -15,188 +14,291 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra', line 6)
+TOSBOOT_DIR = $(TOSDIR)/lib/tosboot/build
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AGENT_FOLDER = /home/francesco/.vscode-server
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 97)
+define TOSMake_extra_targets
+$(subst :,%,$(1)): FORCE
+	@:
+endef
+# environment
+XDG_SESSION_TYPE = tty
 # environment
 VSCODE_LOG_NATIVE = false
-# environment
-NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
 # automatic
+ 
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-CPPFLAGS =  -I/usr/local/opt/zlib/include
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 60)
+GoalOpts := 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
+# default
+MAKE_VERSION := 4.2.1
 # makefile
-CURDIR := /Users/francesco/iot-ch/CH3/src
+CURDIR := /home/francesco/iot/iot-ch/CH3/src
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"bf5b1b4990ee4163837da031589a68cd.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/dfd34e8260c270da74b5c2d86d61aee4b6d56977","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{}}
 # environment
-_ = /usr/bin/make
-# makefile (from `Makefile', line 2)
-CFLAGS = -I$(TOSDIR)/lib/printf
+_ = /home/francesco/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/node
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 8)
+CFLAGS = -I$(TOSDIR)/lib/printf $(IDENT_FLAGS)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target', line 1)
+MAKEFILE_LIST :=  Makefile /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 106)
+define TOSMake_include_dir_define
+$(eval NEW_EXTRAS := $(call TOSMake_makelist,$(1),extra))
+$(eval NEW_TARGETS := $(call TOSMake_makelist,$(1),target))
+$(eval VALID_EXTRAS += $(NEW_EXTRAS))
+$(eval VALID_TARGETS += $(NEW_TARGETS))
+$(eval EXTRAS = $(filter $(call names,$(VALID_EXTRAS)),$(GOALS)))
+$(eval TARGETS = $(filter $(call names,$(VALID_TARGETS)),$(GOALS)))
+$(eval OTHERS = $(filter-out $(EXTRAS) $(TARGETS),$(GOALS)))
+$(foreach file,$(NEW_EXTRAS) $(NEW_TARGETS),$(if $(filter $(call names,$(file)),$(GOALS)),$(eval include $(file))))
+endef
+# 'override' directive
+GNUMAKEFLAGS := 
 # environment
-PF_COLOR = 1
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra', line 4)
+DELUGE_DIR = $(TOSDIR)/lib/net/Deluge
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 52)
+TOSMAKE_PATH = $(TINYOS_MAKE_PATH)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 10)
+BUILD_EXTRA_DEPS = ident_cache
 # environment
-__CFBundleIdentifier = com.microsoft.VSCode
+VSCODE_CWD = /home/francesco
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 163)
+define USAGE
+
+
+Usage:  make <target> <extras>
+        make <target> help
+
+        Valid targets: $(call names,$(VALID_TARGETS))
+        Valid extras: $(call names,$(VALID_EXTRAS))
+$(HELP)
+
+endef
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-fba49769-9db6-4fb2-9057-7f99b55072c6.sock
+SSH_CONNECTION = 10.0.2.2 53707 10.0.2.15 22
 # environment
-VSCODE_CWD = /Users/francesco/iot-ch/CH3/src
+PATH = /home/francesco/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/home/francesco/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/francesco/bin
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
+NEW_TARGETS := /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/mica2dot.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/micaz.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/eyesIFX.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/telos.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/eyesIFXv1.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tinynode.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/iris.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/shimmer2.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/intelmote2.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/mulle.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/eyesIFXv2.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/telosa.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/span.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/clean.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/telosb.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sam3s_ek.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/shimmer2r.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/null.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/z1.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/btnode3.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tmote.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/shimmer.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/epic.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ucmini.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sam3u_ek.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/mica2.target
 # environment
-PATH = /Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.spicetify:/Users/francesco/.local/bin:/Applications/ARM/bin
+TOSROOT = /home/francesco/iot/tinyos-release-tinyos-2_1_2
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 118)
+define TOSMake_accum_dir_define
+$(eval NEW_EXTRAS := $(call TOSMake_makelist,$(1),extra))
+$(eval NEW_TARGETS := $(call TOSMake_makelist,$(1),target))
+$(eval VALID_EXTRAS += $(NEW_EXTRAS))
+$(eval VALID_TARGETS += $(NEW_TARGETS))
+$(eval TARGETS = $(filter $(call names,$(VALID_TARGETS)),$(GOALS)))
+endef
 # environment
-MICRO_TRUECOLOR = 1
+TOSDIR = /home/francesco/iot/tinyos-release-tinyos-2_1_2/tos
 # environment
-LIBRARY_PATH = /opt/homebrew/lib
-# makefile (from `Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 145)
+PLATFORMDIR = $(TOSDIR)/platforms/$(PLATFORM)
 # environment
-CPATH = /opt/homebrew/include
+SPACESHIP_VERSION = 3.16.5
 # environment
-PKG_CONFIG_PAGH = {PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig
-# environment
-NVM_BIN = /Users/francesco/.nvm/versions/node/v14.19.0/bin
+MAKERULES = /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 4)
+DEFAULT_LOCAL_GROUP = 0x22
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 6)
+IDENT_FLAGS := -DIDENT_APPNAME=\"Ch3\" -DIDENT_USERNAME=\"francesco\" -DIDENT_HOSTNAME=\"tux-box\" -DIDENT_USERHASH=0x72388c21L -DIDENT_TIMESTAMP=0x6274d9c3L -DIDENT_UIDHASH=0x0de6add8L
 # environment
 VSCODE_LOG_STACK = false
 # environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-LDFLAGS =  -L/usr/local/opt/zlib/lib
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-d3d14316-d70f-4cef-bedc-42fbefb7bbf2.sock
 # default
-.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-CDPATH = .:~/Library/Application Support/abnerworks.Typora/:
-# environment
-HOMEBREW_GITHUB_API_TOKEN = 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
-# environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.U5plhU9Ko6/Listeners
+LS_COLORS = 
 # automatic
 %F = $(notdir $%)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 88)
+TOSMake_makelist = $(wildcard $(call TOSMake_find,$(1))/*.$(2))
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 23)
+HELP = $(DEFAULT_HELP)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 82)
+sh_search = for a in $(TOSMAKE_PATH); do [ -e "$$a/$$n" ] && echo "$$a/$$n" && break; done
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target', line 4)
+PLATFORMS = mica mica2 mica2dot telos micaz pc
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 130)
+TOSMake_include_platform = $(eval $(call TOSMake_include_platform_define,$(1)))
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 6)
+NESC_FLAGS = -Wnesc-all
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/francesco/iot-ch/CH3/src
-# environment
-PF_INFO = ascii title os host kernel uptime palette
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+PWD = /home/francesco/iot/iot-ch/CH3/src
+# default
+.LOADED := 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 39)
+TINYOS_MAKE_PATH := /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /Users/francesco
-# default
-MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
-# environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
+HOME = /home/francesco
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 5)
+OPTFLAGS = -Os
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra', line 5)
+DELUGE_EXTRA = $(DELUGE_DIR)/extra
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
+VALID_TARGETS = /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/mica2dot.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/micaz.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/eyesIFX.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/telos.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/eyesIFXv1.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tinynode.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/iris.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/shimmer2.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/intelmote2.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/mulle.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/eyesIFXv2.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/telosa.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/span.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/clean.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/telosb.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sam3s_ek.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/shimmer2r.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/null.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/z1.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/btnode3.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tmote.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/shimmer.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/epic.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ucmini.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sam3u_ek.target /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/mica2.target
 # environment
 LOGNAME = francesco
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
++F = $(notdir $+)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 76)
+names = $(sort $(basename $(notdir $(1))))
 # environment
-NVM_CD_FLAGS = -q
-# environment
-ZSH = /Users/francesco/.oh-my-zsh
+ZSH = /home/francesco/.oh-my-zsh
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-HOSTNAME = mbp-m1
-# environment
-XPC_FLAGS = 0x0
-# environment
-COLORTERM = truecolor
+MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 3
+SHLVL = 1
 # environment
-STARSHIP_SESSION_KEY = 2971102532351202
-# default
-MAKE_VERSION := 3.81
+XDG_SESSION_ID = 5
 # environment
 USER = francesco
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := ident_cache
+# environment
+CLASSPATH = :/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/sdk/java
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 4)
+IDENT_PL = tos-ident-flags
 # default
-MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+MAKE_COMMAND := make
 # environment
-TERM_PROGRAM = Hyper
+OLDPWD = /home/francesco
 # default
 .VARIABLES := 
-# environment
-TMPDIR = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/
 # automatic
 *F = $(notdir $*)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
+TARGETS = all
 # environment
-VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.2-main.sock
+PYTHONPATH = :/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/sdk/python
 # makefile
-MAKEFLAGS = Rrqp
+MAKEFLAGS = pqrR
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 49)
+TINYOS_MAKEDEFAULTS = $(TINYOS_MAKE_PATH)/Makedefaults
 # environment
-MFLAGS = -Rrqp
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
+MFLAGS = -pqrR
 # environment
-TERM_PROGRAM_VERSION = 3.2.3
-# environment
-NVM_DIR = /Users/francesco/.nvm
-# environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.28344474.28344480.5B980D8E-8FDA-406E-9A07-0CC8931FD7A8
+SSH_CLIENT = 10.0.2.2 53707 22
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
+NEW_EXTRAS := /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim-sf.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/wiring.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tframe.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cc2420x_32khz.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/docs.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cthreads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tunit.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/blip.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/safe.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/verbose.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/threads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_buildinfo.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/nowiring.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/stack-check.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/appdoc.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cc2420x.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim-fast.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/coap.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/savepp.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/dynthreads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/rst.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# automatic
-+F = $(notdir $+)
 # environment
-__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x4
-# environment
-COMMAND_MODE = unix2003
+BROWSER = /home/francesco/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/helpers/browser.sh
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 131)
+define TOSMake_include_platform_define
+$(call TOSMake_include_dir,$(1))
+$(call TOSMake_include,$(1)/$(1).rules)
+endef
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra', line 4)
+TOS_IMAGE_PL = tos-write-image
+# 'override' directive
+.SHELLSTATUS := 0
 # default
 MAKEFILES := 
-# makefile (from `Makefile', line 1)
-COMPONENT = Ch3C
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 105)
+TOSMake_include_dir = $(eval $(call TOSMake_include_dir_define,$(1)))
+# makefile (from 'Makefile', line 1)
+COMPONENT = Ch3
 # automatic
 <F = $(notdir $<)
-# environment
-EDITOR = helix
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 5)
+IDENT_PROGRAM_NAME = $(COMPONENT)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 7)
+GOALS := all ident_flags tos_image tosboot
 # environment
 PAGER = less
 # environment
 LC_ALL = C
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 83)
+TOSMake_find = $(if $(filter +%,$(1)),$(1:+%=%),$(shell n="$(1)"; $(sh_search)))
+# environment
+SPACESHIP_ROOT = /home/francesco/.oh-my-zsh/custom/themes/spaceship-prompt
 # automatic
 ^F = $(notdir $^)
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 92)
+TOSMake_include = $(eval include $(call TOSMake_find,$(1)))
 # default
 SUFFIXES := 
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 59)
+OptRE := [,.]
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 117)
+TOSMake_accum_dir = $(eval $(call TOSMake_accum_dir_define,$(1)))
 # default
-.INCLUDE_DIRS = /usr/local/include
-# environment
-MAKELEVEL := 0
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 46)
+TINYOS_MAKELOCAL = $(TINYOS_MAKE_PATH)/Makelocal
+# default
+.RECIPEPREFIX := 
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 9)
+define DEFAULT_HELP
+
+ Welcome to the TinyOS make system!
+
+ You must specify one of the valid targets and possibly some combination of
+ the extra options.  Many targets have custom extras and extended help, so be
+ sure to try "make <target> help" to learn of all the available features.
+
+ Global extras:
+
+   docs    : compile additional nescdoc documentation
+   tinysec : compile with TinySec secure communication
+
+endef
+# default
+MAKE_HOST := aarch64-unknown-linux-gnu
 # environment
 LANG = C
+# makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
+VALID_EXTRAS = /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim-sf.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/wiring.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tframe.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cc2420x_32khz.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/docs.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cthreads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tunit.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/blip.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/safe.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/verbose.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/threads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_buildinfo.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/nowiring.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/stack-check.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/appdoc.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cc2420x.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim-fast.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/coap.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/savepp.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/dynthreads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/rst.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra
 # environment
-TERM = xterm-256color
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
-VSCODE_PID = 58191
-# environment
-STARSHIP_SHELL = zsh
+MOTD_SHOWN = pam
 # variable set hash-table stats:
-# Load=92/1024=9%, Rehash=0, Collisions=7/117=6%
+# Load=121/1024=12%, Rehash=0, Collisions=21/406=5%
 
 # Pattern-specific Variable Values
 
@@ -204,9 +306,10 @@ STARSHIP_SHELL = zsh
 
 # Directories
 
-# . (device 16777234, inode 30489049): 8 files, no impossibilities.
+# . (device 64514, inode 1600774): 7 files, no impossibilities.
+# /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make (device 64514, inode 1343543): 68 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 75 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -215,13 +318,59 @@ STARSHIP_SHELL = zsh
 # Files
 
 # Not a target:
-all:
-#  Command-line target.
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra:
 #  Implicit rule search has been done.
+#  Last modified 2012-08-20 18:28:42
+ 
+#  File has been updated.
+#  Successfully updated.
+
+all: FORCE
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := FORCE
+# automatic
+# | := 
+# automatic
+# < := FORCE
+# automatic
+# ^ := FORCE
+# automatic
+# ? := FORCE
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=3/13=23%
+#  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target', line 7):
+	for target in $(filter-out $(INVALID_PLATFORMS),$(PLATFORMS)); do cmd="make $$target"; echo ".... $$cmd"; $$cmd; done
+
+FORCE:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: FORCE
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra:
+#  Implicit rule search has been done.
+#  Last modified 2012-08-20 18:28:42
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .SUFFIXES:
@@ -229,14 +378,41 @@ all:
 #  Modification time never checked.
 #  File has not been updated.
 
+ident_cache: FORCE
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 13):
+	@echo '$(IDENT_FLAGS)' > $(BUILDDIR)/ident_flags.txt
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-05 17:47:40
+#  Last modified 2022-05-05 18:30:36.153267657
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra:
+#  Implicit rule search has been done.
+#  Last modified 2012-08-20 18:28:42
+#  File has been updated.
+#  Successfully updated.
+
+Ch3.nc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 201):
+	@echo "ERROR: You need to create a top level file called $(COMPONENT).nc, or modify your local Makefile to point to the real name of your top level component."
+	@false
+
+# Not a target:
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults:
+#  Implicit rule search has been done.
+#  Last modified 2012-08-20 18:28:42
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -244,21 +420,49 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/all.target:
+#  Implicit rule search has been done.
+#  Last modified 2012-08-20 18:28:42
+#  File has been updated.
+#  Successfully updated.
+
+build_tosimage: FORCE
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra', line 8):
+	@echo "    writing TOS image"
+	@$(TOS_IMAGE_PL) $(IDENT_FLAGS) --ihex="$(MAIN_IHEX)" --exe="$(MAIN_EXE)" --objdump="$(OBJDUMP)" --platform="$(PLATFORM)" > $(BUILDDIR)/tos_image.xml
+
+# Not a target:
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makelocal:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+# Not a target:
+/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules:
+#  Implicit rule search has been done.
+#  Last modified 2012-08-20 18:28:42
+#  File has been updated.
+#  Successfully updated.
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/39=0%
 # VPATH Search Paths
 
-# No `vpath' search paths.
+# No 'vpath' search paths.
 
-# No general (`VPATH' variable) search path.
+# No general ('VPATH' variable) search path.
 
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+# strcache buffers: 1 (0) / strings = 89 / storage = 1557 B / avg = 17 B
+# current buf: size = 8162 B / used = 1557 B / count = 89 / avg = 17 B
 
-# Finished Make data base on Thu May  5 17:47:50 2022
+# strcache performance: lookups = 114 / hit rate = 21%
+# hash-table stats:
+# Load=89/8192=1%, Rehash=0, Collisions=2/114=2%
+# Finished Make data base on Fri May  6 08:18:11 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-
