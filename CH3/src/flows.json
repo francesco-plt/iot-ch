@@ -1,0 +1,21 @@
+[
+    {
+        "id": "105f3c4677670484",
+        "type": "function",
+        "z": "313597a105424b34",
+        "name": "",
+        "func": "var str = msg.payload;\nvar tsPayload;\nif(!str.startsWith(\"DEBUG\")) {\n    tsPayload = JSON.parse(string);\n}\nvar field1 = msg.payload.field1;\nvar field2 = msg.payload.field2;\nvar field3 = msg.payload.field5;\nvar ch_id = \"1724994\"\n\nmsg.topic = \"channels/\" + ch_id + \"/publish\"\nmsg.payload = \"field1=\" + tsPayload[\"led0\"] + \"&field2=\" + tsPayload[\"led1\"] + \"&field3=\" + tsPayload[\"led2\"] + \"&status=MQTTPUBLISH\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "cbb82a4fc37611c5"
+            ]
+        ]
+    }
+]
