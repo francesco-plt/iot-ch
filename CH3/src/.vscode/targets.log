@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri May  6 08:18:11 2022
+# Make data base, printed on Fri May  6 12:21:39 2022
 
 # Variables
 
@@ -32,7 +32,6 @@ XDG_SESSION_TYPE = tty
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
- 
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 60)
 GoalOpts := 
@@ -92,7 +91,7 @@ $(HELP)
 
 endef
 # environment
-SSH_CONNECTION = 10.0.2.2 53707 10.0.2.15 22
+SSH_CONNECTION = 10.0.2.2 59034 10.0.2.15 22
 # environment
 PATH = /home/francesco/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/home/francesco/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/home/francesco/bin
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
@@ -103,6 +102,7 @@ TOSROOT = /home/francesco/iot/tinyos-release-tinyos-2_1_2
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 118)
 define TOSMake_accum_dir_define
+ 
 $(eval NEW_EXTRAS := $(call TOSMake_makelist,$(1),extra))
 $(eval NEW_TARGETS := $(call TOSMake_makelist,$(1),target))
 $(eval VALID_EXTRAS += $(NEW_EXTRAS))
@@ -122,11 +122,11 @@ MAKERULES = /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerul
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults', line 4)
 DEFAULT_LOCAL_GROUP = 0x22
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 6)
-IDENT_FLAGS := -DIDENT_APPNAME=\"Ch3\" -DIDENT_USERNAME=\"francesco\" -DIDENT_HOSTNAME=\"tux-box\" -DIDENT_USERHASH=0x72388c21L -DIDENT_TIMESTAMP=0x6274d9c3L -DIDENT_UIDHASH=0x0de6add8L
+IDENT_FLAGS := -DIDENT_APPNAME=\"AppCh3C\" -DIDENT_USERNAME=\"francesco\" -DIDENT_HOSTNAME=\"tux-box\" -DIDENT_USERHASH=0x72388c21L -DIDENT_TIMESTAMP=0x627512d3L -DIDENT_UIDHASH=0x7cd819dfL
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-d3d14316-d70f-4cef-bedc-42fbefb7bbf2.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-8e4738e1-f088-4623-a05c-11b92843286a.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -188,7 +188,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 1
 # environment
-XDG_SESSION_ID = 5
+XDG_SESSION_ID = 7
 # environment
 USER = francesco
 # makefile
@@ -220,7 +220,7 @@ TINYOS_MAKEDEFAULTS = $(TINYOS_MAKE_PATH)/Makedefaults
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 10.0.2.2 53707 22
+SSH_CLIENT = 10.0.2.2 59034 22
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 148)
 NEW_EXTRAS := /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim-sf.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/wiring.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tframe.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cc2420x_32khz.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/docs.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cthreads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tunit.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/blip.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/safe.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/verbose.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/threads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_buildinfo.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/nowiring.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/stack-check.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/appdoc.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/cc2420x.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/sim-fast.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/coap.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/savepp.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/dynthreads.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/rst.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tosboot.extra /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra
 # automatic
@@ -241,7 +241,7 @@ MAKEFILES :=
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 105)
 TOSMake_include_dir = $(eval $(call TOSMake_include_dir_define,$(1)))
 # makefile (from 'Makefile', line 1)
-COMPONENT = Ch3
+COMPONENT = AppCh3C
 # automatic
 <F = $(notdir $<)
 # makefile (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 5)
@@ -306,10 +306,10 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 64514, inode 1600774): 7 files, no impossibilities.
+# . (device 64514, inode 1600774): 9 files, no impossibilities.
 # /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make (device 64514, inode 1343543): 68 files, no impossibilities.
 
-# 75 files, no impossibilities in 2 directories.
+# 77 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -321,7 +321,6 @@ MOTD_SHOWN = pam
 /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/tos_image.extra:
 #  Implicit rule search has been done.
 #  Last modified 2012-08-20 18:28:42
- 
 #  File has been updated.
 #  Successfully updated.
 
@@ -383,12 +382,13 @@ ident_cache: FORCE
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/ident_flags.extra', line 13):
+ 
 	@echo '$(IDENT_FLAGS)' > $(BUILDDIR)/ident_flags.txt
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-05 18:30:36.153267657
+#  Last modified 2022-05-06 08:20:21.585613265
 #  File has been updated.
 #  Successfully updated.
 
@@ -398,14 +398,6 @@ Makefile:
 #  Last modified 2012-08-20 18:28:42
 #  File has been updated.
 #  Successfully updated.
-
-Ch3.nc:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 201):
-	@echo "ERROR: You need to create a top level file called $(COMPONENT).nc, or modify your local Makefile to point to the real name of your top level component."
-	@false
 
 # Not a target:
 /home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makedefaults:
@@ -449,6 +441,14 @@ build_tosimage: FORCE
 #  File has been updated.
 #  Successfully updated.
 
+AppCh3C.nc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from '/home/francesco/iot/tinyos-release-tinyos-2_1_2/support/make/Makerules', line 201):
+	@echo "ERROR: You need to create a top level file called $(COMPONENT).nc, or modify your local Makefile to point to the real name of your top level component."
+	@false
+
 # files hash-table stats:
 # Load=16/1024=2%, Rehash=0, Collisions=0/39=0%
 # VPATH Search Paths
@@ -457,12 +457,12 @@ build_tosimage: FORCE
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 89 / storage = 1557 B / avg = 17 B
-# current buf: size = 8162 B / used = 1557 B / count = 89 / avg = 17 B
+# strcache buffers: 1 (0) / strings = 91 / storage = 1578 B / avg = 17 B
+# current buf: size = 8162 B / used = 1578 B / count = 91 / avg = 17 B
 
-# strcache performance: lookups = 114 / hit rate = 21%
+# strcache performance: lookups = 116 / hit rate = 21%
 # hash-table stats:
-# Load=89/8192=1%, Rehash=0, Collisions=2/114=2%
-# Finished Make data base on Fri May  6 08:18:11 2022
+# Load=91/8192=1%, Rehash=0, Collisions=2/116=2%
+# Finished Make data base on Fri May  6 12:21:39 2022
 
  

@@ -1,15 +1,9 @@
+/*
+	@author Francesco Pallotta - 2022
+*/
 #include "printf.h"
 #include <inttypes.h>
 #define T_INT 60000
-
-/*
- * Library function call Leds.get(), defined here https://github.com/tinyos/tinyos-main/blob/master/tos/interfaces/Leds.nc#L117,
- * does not return the expected state of the LEDs. It always returns 7,
- * even when the simulator shows some LEDs rurned off.
- * Due to this impossibility to query the LED state, the state
- * is explicitly represented in the code and set at every iteration.
- * This allows reading the state without querying the interface.
- */
 
 module Ch3C {
   uses {
@@ -22,6 +16,7 @@ module Ch3C {
 implementation {
 
 	uint32_t pers_code = 0;
+	uint32_t dbg_flag = 0;
 
   event void Boot.booted() {
  	pers_code = 10783751;
@@ -55,7 +50,9 @@ implementation {
   	pers_code = pers_code / 3;
 
 	// printing to mote output
-	printf("DEBUG: remainder: %" PRIu32, rem);
+	if(dbg_flag) {
+		printf("DEBUG: remainder: %" PRIu32, rem);
+	}
 	// printfflush();
 
 	// according to the remainder of the iteration,
@@ -64,25 +61,29 @@ implementation {
     {
       call Leds.led0Toggle();
 	  led0_state = 1;
-	  printf(", led0 toggled\n");
-	  printfflush();
+	  if(dbg_flag) {
+		printf(", led0 toggled\n");
+		printfflush();
+	  }
+
     }
     else if(rem == 1)
     {
       call Leds.led1Toggle();
 	  led1_state = 1;
-	  printf(", led1 toggled\n");
-	  printfflush();
+	  if(dbg_flag) {
+	  	printf(", led1 toggled\n");
+		printfflush();
+	  }
     }
     else if(rem == 2)
     {
       call Leds.led2Toggle();
 	  led2_state = 1;
-	  printf(", led2 toggled\n");
-	  printfflush();
-    } else {
-      printf("DEBUG: ERROR - remainder is not 0, 1 or 2\n");
-      printfflush();
+	  if(dbg_flag) {
+	  	printf(", led2 toggled\n");
+		printfflush();
+	  }
     }
 
 	// sending led status as a string containing
@@ -92,7 +93,10 @@ implementation {
 
 	// exit condition	  	
   	if(0 == pers_code) {
-		printf("DEBUG: done. exiting\n");
+		if(dbg_flag) {
+			printf("DEBUG: done. exiting\n");
+			printfflush();
+		}
   		call Timer.stop();
   	}  	
   }
