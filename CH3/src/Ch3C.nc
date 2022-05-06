@@ -38,11 +38,17 @@ implementation {
   event void Timer.fired() {
   	
 	uint32_t rem;
+	uint32_t led0_state;
+	uint32_t led1_state;
+	uint32_t led2_state;
 
 	// turn off leds
 	call Leds.led0Off();
 	call Leds.led1Off();
 	call Leds.led2Off();
+	led0_state = 0;
+	led1_state = 0;
+	led2_state = 0;
   	
 	// step of the ternary conversion of pcode
   	rem = pers_code % 3;
@@ -57,24 +63,32 @@ implementation {
     if(rem == 0)
     {
       call Leds.led0Toggle();
+	  led0_state = 1;
 	  printf(", led0 toggled\n");
 	  printfflush();
     }
     else if(rem == 1)
     {
       call Leds.led1Toggle();
+	  led1_state = 1;
 	  printf(", led1 toggled\n");
 	  printfflush();
     }
     else if(rem == 2)
     {
       call Leds.led2Toggle();
+	  led2_state = 1;
 	  printf(", led2 toggled\n");
 	  printfflush();
     } else {
-      printf("DEBUG - ERROR: remainder is not 0, 1 or 2\n");
+      printf("DEBUG: ERROR - remainder is not 0, 1 or 2\n");
       printfflush();
     }
+
+	// sending led status as a string containing
+	// a JSON dictionary to the mote output
+	printf("{\"led0\": %" PRIu32 ", \"led1\": %" PRIu32 ", \"led2\": %" PRIu32 "}\n", led0_state, led1_state, led2_state);
+	printfflush();
 
 	// exit condition	  	
   	if(0 == pers_code) {

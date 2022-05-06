@@ -189,9 +189,9 @@ typedef int32_t ufs_daddr_t;
 typedef int32_t ufs_time_t;
 typedef u_int32_t uid_t;
 # 44 "/usr/lib/gcc/msp430/4.6.3/../../../../msp430/include/string.h" 3
-extern void *memset(void *arg_0xffff9e48f980, int arg_0xffff9e48fbe8, size_t arg_0xffff9e48e020);
+extern void *memset(void *arg_0xffff96adc980, int arg_0xffff96adcbe8, size_t arg_0xffff96adb020);
 #line 65
-extern void *memset(void *arg_0xffff9e478b10, int arg_0xffff9e478d78, size_t arg_0xffff9e477060);
+extern void *memset(void *arg_0xffff96ac5b10, int arg_0xffff96ac5d78, size_t arg_0xffff96ac4060);
 # 62 "/usr/lib/gcc/msp430/4.6.3/../../../../msp430/include/stdlib.h" 3
 #line 59
 typedef struct __nesc_unnamed4242 {
@@ -346,7 +346,7 @@ struct _reent {
 
   int __sdidinit;
 
-  void (*__cleanup)(struct _reent *arg_0xffff9e43a290);
+  void (*__cleanup)(struct _reent *arg_0xffff96a87290);
 
 
   struct _Bigint *_result;
@@ -386,7 +386,7 @@ struct _reent {
   struct _atexit _atexit0;
 
 
-  void (**_sig_func)(int arg_0xffff9e435300);
+  void (**_sig_func)(int arg_0xffff96a82300);
 
 
 
@@ -1687,7 +1687,7 @@ static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__VectorTimerX1__fired(v
 #line 39
 static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default__fired(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0xffff9de24900);
+uint8_t arg_0xffff96471900);
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerEvent.nc"
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__VectorTimerX0__fired(void );
 #line 39
@@ -1697,7 +1697,7 @@ static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__VectorTimerX1__fired(v
 #line 39
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0xffff9de24900);
+uint8_t arg_0xffff96471900);
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430Timer.nc"
 static uint16_t /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Timer__get(void );
 static bool /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Timer__isOverflowPending(void );
@@ -1845,11 +1845,11 @@ static void McuSleepC__McuSleep__sleep(void );
 # 67 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/TaskBasic.nc"
 static error_t SchedulerBasicP__TaskBasic__postTask(
 # 56 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0xffff9df6d650);
+uint8_t arg_0xffff965ba650);
 # 75 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/TaskBasic.nc"
 static void SchedulerBasicP__TaskBasic__default__runTask(
 # 56 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0xffff9df6d650);
+uint8_t arg_0xffff965ba650);
 # 57 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Scheduler.nc"
 static void SchedulerBasicP__Scheduler__init(void );
 #line 72
@@ -2026,17 +2026,17 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__f
 #line 83
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xffff9d9545d8);
+uint8_t arg_0xffff95f9d5d8);
 # 64 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/Timer.nc"
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__startPeriodic(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xffff9d9545d8, 
+uint8_t arg_0xffff95f9d5d8, 
 # 64 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/Timer.nc"
 uint32_t dt);
 #line 78
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__stop(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xffff9d9545d8);
+uint8_t arg_0xffff95f9d5d8);
 # 82 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/Counter.nc"
 static void /*HilTimerMilliC.CounterToLocalTimeC*/CounterToLocalTimeC__0__Counter__overflow(void );
 # 49 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/printf/Putchar.nc"
@@ -2048,25 +2048,25 @@ static error_t SerialPrintfP__StdControl__start(void );
 # 65 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__ResourceConfigure__unconfigure(
 # 44 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d860b38);
+uint8_t arg_0xffff95ea9b38);
 # 59 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__ResourceConfigure__configure(
 # 44 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d860b38);
+uint8_t arg_0xffff95ea9b38);
 # 46 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartByte.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UartByte__send(
 # 46 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85edf0, 
+uint8_t arg_0xffff95ea7df0, 
 # 46 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartByte.nc"
 uint8_t byte);
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartConfigure.nc"
 static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(
 # 49 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85be20);
+uint8_t arg_0xffff95ea4e20);
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__send(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 44 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -2076,13 +2076,13 @@ uint16_t len);
 #line 79
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 79 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t byte);
 #line 99
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 95 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -2092,7 +2092,7 @@ uint16_t len, error_t error);
 #line 57
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 53 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -2104,41 +2104,41 @@ static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Counter__overflow(void );
 # 120 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 97 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__granted(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 128 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 120 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__release(
 # 43 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d865900);
+uint8_t arg_0xffff95eac900);
 # 97 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__immediateRequest(
 # 43 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d865900);
+uint8_t arg_0xffff95eac900);
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(
 # 43 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d865900);
+uint8_t arg_0xffff95eac900);
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartInterrupts__rxDone(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d83b948, 
+uint8_t arg_0xffff95e84948, 
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartInterrupts__txDone(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d83b948);
+uint8_t arg_0xffff95e84948);
 # 143 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430Usart.nc"
 static void HplMsp430Usart1P__Usart__enableUartRx(void );
 #line 123
@@ -2195,13 +2195,13 @@ static error_t HplMsp430Usart1P__AsyncStdControl__stop(void );
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__rxDone(
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0xffff9d71e220, 
+uint8_t arg_0xffff95d68220, 
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__txDone(
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0xffff9d71e220);
+uint8_t arg_0xffff95d68220);
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__RawInterrupts__rxDone(uint8_t data);
 #line 49
@@ -2215,33 +2215,33 @@ static resource_client_id_t /*Msp430UsartShare1P.ArbiterC.Queue*/FcfsResourceQue
 # 61 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceRequested.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__default__immediateRequested(
 # 55 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e07e8);
+uint8_t arg_0xffff95d297e8);
 # 65 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(
 # 60 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6dd9b8);
+uint8_t arg_0xffff95d269b8);
 # 59 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(
 # 60 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6dd9b8);
+uint8_t arg_0xffff95d269b8);
 # 56 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceDefaultOwner.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceDefaultOwner__release(void );
 # 120 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__release(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e1658);
+uint8_t arg_0xffff95d2a658);
 # 97 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__immediateRequest(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e1658);
+uint8_t arg_0xffff95d2a658);
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__default__granted(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e1658);
+uint8_t arg_0xffff95d2a658);
 # 128 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static bool /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__isOwner(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e1658);
+uint8_t arg_0xffff95d2a658);
 # 90 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ArbiterInfo.nc"
 static bool /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ArbiterInfo__inUse(void );
 
@@ -2312,7 +2312,7 @@ uint8_t len);
 # 110 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/AMSend.nc"
 static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__default__sendDone(
 # 47 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0xffff9d60bbc0, 
+am_id_t arg_0xffff95c54bc0, 
 # 103 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -2331,7 +2331,7 @@ message_t *
 
 /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0xffff9d608ce8, 
+am_id_t arg_0xffff95c51ce8, 
 # 71 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -2378,7 +2378,7 @@ static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__receive
 # 100 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Send.nc"
 static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4d0780, 
+uart_id_t arg_0xffff95b19780, 
 # 96 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -2396,7 +2396,7 @@ message_t *
 
 /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(
 # 50 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4d3c58, 
+uart_id_t arg_0xffff95b1cc58, 
 # 71 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -2409,13 +2409,13 @@ uint8_t len);
 # 31 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4cfaa8, 
+uart_id_t arg_0xffff95b18aa8, 
 # 31 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t dataLinkLen);
 #line 15
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4cfaa8);
+uart_id_t arg_0xffff95b18aa8);
 # 81 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SendBytePacket.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__SendBytePacket__nextByte(void );
 
@@ -2580,7 +2580,7 @@ static inline error_t Msp430ClockP__Init__init(void );
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerEvent.nc"
 static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0xffff9de24900);
+uint8_t arg_0xffff96471900);
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430Timer.nc"
 static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Timer__overflow(void );
 # 126 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerP.nc"
@@ -2608,7 +2608,7 @@ static inline void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default_
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerEvent.nc"
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0xffff9de24900);
+uint8_t arg_0xffff96471900);
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430Timer.nc"
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Timer__overflow(void );
 # 62 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerP.nc"
@@ -3049,7 +3049,7 @@ int main(void )   ;
 # 75 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/TaskBasic.nc"
 static void SchedulerBasicP__TaskBasic__runTask(
 # 56 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0xffff9df6d650);
+uint8_t arg_0xffff965ba650);
 # 76 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/McuSleep.nc"
 static void SchedulerBasicP__McuSleep__sleep(void );
 # 61 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/SchedulerBasicP.nc"
@@ -3478,7 +3478,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__s
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0xffff9d9545d8);
+uint8_t arg_0xffff95f9d5d8);
 #line 71
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0____nesc_unnamed4296 {
 #line 71
@@ -3577,7 +3577,7 @@ static inline int SerialPrintfP__Putchar__putchar(int c);
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartConfigure.nc"
 static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(
 # 49 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85be20);
+uint8_t arg_0xffff95ea4e20);
 # 97 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430Usart.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Usart__resetUsart(bool reset);
 #line 179
@@ -3606,13 +3606,13 @@ static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Usart__clrTxIntr(void );
 # 79 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 79 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t byte);
 #line 99
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 95 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -3622,7 +3622,7 @@ uint16_t len, error_t error);
 #line 57
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(
 # 45 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85f860, 
+uint8_t arg_0xffff95ea8860, 
 # 53 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -3632,19 +3632,19 @@ uint16_t len, error_t error);
 # 120 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 97 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 128 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d85cbe8);
+uint8_t arg_0xffff95ea5be8);
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(
 # 43 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0xffff9d865900);
+uint8_t arg_0xffff95eac900);
 #line 59
 uint16_t /*Msp430Uart1P.UartP*/Msp430UartP__0__m_tx_len;
 #line 59
@@ -3893,13 +3893,13 @@ static uint8_t /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__ArbiterIn
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__rxDone(
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0xffff9d71e220, 
+uint8_t arg_0xffff95d68220, 
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__txDone(
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0xffff9d71e220);
+uint8_t arg_0xffff95d68220);
 
 
 
@@ -3952,15 +3952,15 @@ static inline resource_client_id_t /*Msp430UsartShare1P.ArbiterC.Queue*/FcfsReso
 # 61 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceRequested.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__immediateRequested(
 # 55 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e07e8);
+uint8_t arg_0xffff95d297e8);
 # 65 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(
 # 60 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6dd9b8);
+uint8_t arg_0xffff95d269b8);
 # 59 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__configure(
 # 60 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6dd9b8);
+uint8_t arg_0xffff95d269b8);
 # 53 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceQueue.nc"
 static bool /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Queue__isEmpty(void );
 #line 70
@@ -3972,7 +3972,7 @@ static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceDefaultO
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__granted(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
-uint8_t arg_0xffff9d6e1658);
+uint8_t arg_0xffff95d2a658);
 # 67 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/TaskBasic.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__grantedTask__postTask(void );
 # 75 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/system/ArbiterP.nc"
@@ -4111,7 +4111,7 @@ static inline void SerialStartP__SerialControl__stopDone(error_t error);
 # 110 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/AMSend.nc"
 static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(
 # 47 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0xffff9d60bbc0, 
+am_id_t arg_0xffff95c54bc0, 
 # 103 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -4130,7 +4130,7 @@ message_t *
 
 /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(
 # 48 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0xffff9d608ce8, 
+am_id_t arg_0xffff95c51ce8, 
 # 71 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4557,7 +4557,7 @@ static error_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__rece
 # 100 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Send.nc"
 static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(
 # 51 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4d0780, 
+uart_id_t arg_0xffff95b19780, 
 # 96 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -4575,7 +4575,7 @@ message_t *
 
 /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(
 # 50 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4d3c58, 
+uart_id_t arg_0xffff95b1cc58, 
 # 71 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4588,13 +4588,13 @@ uint8_t len);
 # 31 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4cfaa8, 
+uart_id_t arg_0xffff95b18aa8, 
 # 31 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t dataLinkLen);
 #line 15
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0xffff9d4cfaa8);
+uart_id_t arg_0xffff95b18aa8);
 # 71 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SendBytePacket.nc"
 static error_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__SendBytePacket__completeSend(void );
 # 158 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialDispatcherP.nc"
@@ -4839,9 +4839,9 @@ static inline void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default_
 }
 
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerEvent.nc"
-inline static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(uint8_t arg_0xffff9de24900){
+inline static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(uint8_t arg_0xffff96471900){
 #line 39
-  switch (arg_0xffff9de24900) {
+  switch (arg_0xffff96471900) {
 #line 39
     case 0:
 #line 39
@@ -4869,7 +4869,7 @@ inline static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(ui
 #line 39
     default:
 #line 39
-      /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default__fired(arg_0xffff9de24900);
+      /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default__fired(arg_0xffff96471900);
 #line 39
       break;
 #line 39
@@ -6725,9 +6725,9 @@ static inline void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__d
 }
 
 # 110 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/AMSend.nc"
-inline static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(am_id_t arg_0xffff9d60bbc0, message_t * msg, error_t error){
+inline static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(am_id_t arg_0xffff95c54bc0, message_t * msg, error_t error){
 #line 110
-    /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__default__sendDone(arg_0xffff9d60bbc0, msg, error);
+    /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__default__sendDone(arg_0xffff95c54bc0, msg, error);
 #line 110
 }
 #line 110
@@ -6746,9 +6746,9 @@ static inline void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
 }
 
 # 100 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Send.nc"
-inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(uart_id_t arg_0xffff9d4d0780, message_t * msg, error_t error){
+inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(uart_id_t arg_0xffff95b19780, message_t * msg, error_t error){
 #line 100
-  switch (arg_0xffff9d4d0780) {
+  switch (arg_0xffff95b19780) {
 #line 100
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 100
@@ -6758,7 +6758,7 @@ inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
 #line 100
     default:
 #line 100
-      /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(arg_0xffff9d4d0780, msg, error);
+      /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(arg_0xffff95b19780, msg, error);
 #line 100
       break;
 #line 100
@@ -6807,13 +6807,13 @@ static inline message_t */*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Rec
 }
 
 # 78 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Receive.nc"
-inline static message_t * /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(am_id_t arg_0xffff9d608ce8, message_t * msg, void * payload, uint8_t len){
+inline static message_t * /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(am_id_t arg_0xffff95c51ce8, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(arg_0xffff9d608ce8, msg, payload, len);
+    __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(arg_0xffff95c51ce8, msg, payload, len);
 #line 78
 
 #line 78
@@ -6838,13 +6838,13 @@ uint8_t len)
 }
 
 # 78 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Receive.nc"
-inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(uart_id_t arg_0xffff9d4d3c58, message_t * msg, void * payload, uint8_t len){
+inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(uart_id_t arg_0xffff95b1cc58, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-  switch (arg_0xffff9d4d3c58) {
+  switch (arg_0xffff95b1cc58) {
 #line 78
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 78
@@ -6854,7 +6854,7 @@ inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatche
 #line 78
     default:
 #line 78
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(arg_0xffff9d4d3c58, msg, payload, len);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(arg_0xffff95b1cc58, msg, payload, len);
 #line 78
       break;
 #line 78
@@ -6882,13 +6882,13 @@ uint8_t dataLinkLen)
 }
 
 # 31 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(uart_id_t arg_0xffff9d4cfaa8, message_t *msg, uint8_t dataLinkLen){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(uart_id_t arg_0xffff95b18aa8, message_t *msg, uint8_t dataLinkLen){
 #line 31
   unsigned char __nesc_result;
 #line 31
 
 #line 31
-  switch (arg_0xffff9d4cfaa8) {
+  switch (arg_0xffff95b18aa8) {
 #line 31
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 31
@@ -6898,7 +6898,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 31
     default:
 #line 31
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(arg_0xffff9d4cfaa8, msg, dataLinkLen);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(arg_0xffff95b18aa8, msg, dataLinkLen);
 #line 31
       break;
 #line 31
@@ -6925,13 +6925,13 @@ static inline uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 }
 
 # 15 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(uart_id_t arg_0xffff9d4cfaa8){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(uart_id_t arg_0xffff95b18aa8){
 #line 15
   unsigned char __nesc_result;
 #line 15
 
 #line 15
-  switch (arg_0xffff9d4cfaa8) {
+  switch (arg_0xffff95b18aa8) {
 #line 15
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 15
@@ -6941,7 +6941,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 15
     default:
 #line 15
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(arg_0xffff9d4cfaa8);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(arg_0xffff95b18aa8);
 #line 15
       break;
 #line 15
@@ -7154,9 +7154,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 }
 
 # 65 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0xffff9d6dd9b8){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0xffff95d269b8){
 #line 65
-  switch (arg_0xffff9d6dd9b8) {
+  switch (arg_0xffff95d269b8) {
 #line 65
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 65
@@ -7166,7 +7166,7 @@ inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 #line 65
     default:
 #line 65
-      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(arg_0xffff9d6dd9b8);
+      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(arg_0xffff95d269b8);
 #line 65
       break;
 #line 65
@@ -7323,13 +7323,13 @@ static inline error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__defau
 }
 
 # 120 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(uint8_t arg_0xffff9d85cbe8){
+inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(uint8_t arg_0xffff95ea5be8){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  switch (arg_0xffff9d85cbe8) {
+  switch (arg_0xffff95ea5be8) {
 #line 120
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 120
@@ -7339,7 +7339,7 @@ inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__relea
 #line 120
     default:
 #line 120
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(arg_0xffff9d85cbe8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(arg_0xffff95ea5be8);
 #line 120
       break;
 #line 120
@@ -7360,13 +7360,13 @@ static inline bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default_
 }
 
 # 128 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
-inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(uint8_t arg_0xffff9d85cbe8){
+inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(uint8_t arg_0xffff95ea5be8){
 #line 128
   unsigned char __nesc_result;
 #line 128
 
 #line 128
-  switch (arg_0xffff9d85cbe8) {
+  switch (arg_0xffff95ea5be8) {
 #line 128
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 128
@@ -7376,7 +7376,7 @@ inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(
 #line 128
     default:
 #line 128
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(arg_0xffff9d85cbe8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(arg_0xffff95ea5be8);
 #line 128
       break;
 #line 128
@@ -7561,13 +7561,13 @@ static inline error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__defau
 }
 
 # 97 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(uint8_t arg_0xffff9d85cbe8){
+inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(uint8_t arg_0xffff95ea5be8){
 #line 97
   unsigned char __nesc_result;
 #line 97
 
 #line 97
-  switch (arg_0xffff9d85cbe8) {
+  switch (arg_0xffff95ea5be8) {
 #line 97
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 97
@@ -7577,7 +7577,7 @@ inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immed
 #line 97
     default:
 #line 97
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(arg_0xffff9d85cbe8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(arg_0xffff95ea5be8);
 #line 97
       break;
 #line 97
@@ -7656,9 +7656,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceR
 }
 
 # 61 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceRequested.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__immediateRequested(uint8_t arg_0xffff9d6e07e8){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__immediateRequested(uint8_t arg_0xffff95d297e8){
 #line 61
-    /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__default__immediateRequested(arg_0xffff9d6e07e8);
+    /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__default__immediateRequested(arg_0xffff95d297e8);
 #line 61
 }
 #line 61
@@ -7779,13 +7779,13 @@ static inline msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__
 }
 
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/Msp430UartConfigure.nc"
-inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(uint8_t arg_0xffff9d85be20){
+inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(uint8_t arg_0xffff95ea4e20){
 #line 39
   union __nesc_unnamed4280 *__nesc_result;
 #line 39
 
 #line 39
-  switch (arg_0xffff9d85be20) {
+  switch (arg_0xffff95ea4e20) {
 #line 39
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 39
@@ -7795,7 +7795,7 @@ inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__
 #line 39
     default:
 #line 39
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(arg_0xffff9d85be20);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(arg_0xffff95ea4e20);
 #line 39
       break;
 #line 39
@@ -8322,9 +8322,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__gran
 }
 
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8_t arg_0xffff9d865900){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8_t arg_0xffff95eac900){
 #line 102
-  switch (arg_0xffff9d865900) {
+  switch (arg_0xffff95eac900) {
 #line 102
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 102
@@ -8334,7 +8334,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8
 #line 102
     default:
 #line 102
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(arg_0xffff9d865900);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(arg_0xffff95eac900);
 #line 102
       break;
 #line 102
@@ -8356,9 +8356,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource_
 }
 
 # 102 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/Resource.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__granted(uint8_t arg_0xffff9d6e1658){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__granted(uint8_t arg_0xffff95d2a658){
 #line 102
-  switch (arg_0xffff9d6e1658) {
+  switch (arg_0xffff95d2a658) {
 #line 102
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 102
@@ -8368,7 +8368,7 @@ inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource_
 #line 102
     default:
 #line 102
-      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__default__granted(arg_0xffff9d6e1658);
+      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__default__granted(arg_0xffff95d2a658);
 #line 102
       break;
 #line 102
@@ -8383,9 +8383,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 }
 
 # 59 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__configure(uint8_t arg_0xffff9d6dd9b8){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__configure(uint8_t arg_0xffff95d269b8){
 #line 59
-  switch (arg_0xffff9d6dd9b8) {
+  switch (arg_0xffff95d269b8) {
 #line 59
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 59
@@ -8395,7 +8395,7 @@ inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 #line 59
     default:
 #line 59
-      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(arg_0xffff9d6dd9b8);
+      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(arg_0xffff95d269b8);
 #line 59
       break;
 #line 59
@@ -8812,11 +8812,17 @@ static inline void Ch3C__Timer__fired(void )
 {
 
   uint32_t rem;
+  uint32_t led0_state;
+  uint32_t led1_state;
+  uint32_t led2_state;
 
 
   Ch3C__Leds__led0Off();
   Ch3C__Leds__led1Off();
   Ch3C__Leds__led2Off();
+  led0_state = 0;
+  led1_state = 0;
+  led2_state = 0;
 
 
   rem = Ch3C__pers_code % 3;
@@ -8831,33 +8837,41 @@ static inline void Ch3C__Timer__fired(void )
   if (rem == 0) 
     {
       Ch3C__Leds__led0Toggle();
+      led0_state = 1;
       printf(", led0 toggled\n");
       printfflush();
     }
   else {
-#line 63
+#line 70
     if (rem == 1) 
       {
         Ch3C__Leds__led1Toggle();
+        led1_state = 1;
         printf(", led1 toggled\n");
         printfflush();
       }
     else {
-#line 69
+#line 77
       if (rem == 2) 
         {
           Ch3C__Leds__led2Toggle();
+          led2_state = 1;
           printf(", led2 toggled\n");
           printfflush();
         }
       else 
-#line 74
+#line 83
         {
-          printf("DEBUG - ERROR: remainder is not 0, 1 or 2\n");
+          printf("DEBUG: ERROR - remainder is not 0, 1 or 2\n");
           printfflush();
         }
       }
     }
+
+  printf("{\"led0\": %""l""u"", \"led1\": %""l""u"", \"led2\": %""l""u""}\n", led0_state, led1_state, led2_state);
+  printfflush();
+
+
   if (0 == Ch3C__pers_code) {
       printf("DEBUG: done. exiting\n");
       Ch3C__Timer__stop();
@@ -8870,9 +8884,9 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 }
 
 # 83 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0xffff9d9545d8){
+inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0xffff95f9d5d8){
 #line 83
-  switch (arg_0xffff9d9545d8) {
+  switch (arg_0xffff95f9d5d8) {
 #line 83
     case 0U:
 #line 83
@@ -8882,7 +8896,7 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 #line 83
     default:
 #line 83
-      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0xffff9d9545d8);
+      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0xffff95f9d5d8);
 #line 83
       break;
 #line 83
@@ -9517,9 +9531,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__re
 }
 
 # 79 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(uint8_t arg_0xffff9d85f860, uint8_t byte){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(uint8_t arg_0xffff95ea8860, uint8_t byte){
 #line 79
-  switch (arg_0xffff9d85f860) {
+  switch (arg_0xffff95ea8860) {
 #line 79
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 79
@@ -9529,7 +9543,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByt
 #line 79
     default:
 #line 79
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(arg_0xffff9d85f860, byte);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(arg_0xffff95ea8860, byte);
 #line 79
       break;
 #line 79
@@ -9550,9 +9564,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__re
 }
 
 # 99 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(uint8_t arg_0xffff9d85f860, uint8_t * buf, uint16_t len, error_t error){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(uint8_t arg_0xffff95ea8860, uint8_t * buf, uint16_t len, error_t error){
 #line 99
-  switch (arg_0xffff9d85f860) {
+  switch (arg_0xffff95ea8860) {
 #line 99
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 99
@@ -9562,7 +9576,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone
 #line 99
     default:
 #line 99
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(arg_0xffff9d85f860, buf, len, error);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(arg_0xffff95ea8860, buf, len, error);
 #line 99
       break;
 #line 99
@@ -9598,9 +9612,9 @@ static inline void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 }
 
 # 54 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
-inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__rxDone(uint8_t arg_0xffff9d71e220, uint8_t data){
+inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__rxDone(uint8_t arg_0xffff95d68220, uint8_t data){
 #line 54
-  switch (arg_0xffff9d71e220) {
+  switch (arg_0xffff95d68220) {
 #line 54
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 54
@@ -9610,7 +9624,7 @@ inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 #line 54
     default:
 #line 54
-      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__rxDone(arg_0xffff9d71e220, data);
+      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__rxDone(arg_0xffff95d68220, data);
 #line 54
       break;
 #line 54
@@ -9912,9 +9926,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__se
 }
 
 # 57 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(uint8_t arg_0xffff9d85f860, uint8_t * buf, uint16_t len, error_t error){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(uint8_t arg_0xffff95ea8860, uint8_t * buf, uint16_t len, error_t error){
 #line 57
-  switch (arg_0xffff9d85f860) {
+  switch (arg_0xffff95ea8860) {
 #line 57
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 57
@@ -9924,7 +9938,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(ui
 #line 57
     default:
 #line 57
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(arg_0xffff9d85f860, buf, len, error);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(arg_0xffff95ea8860, buf, len, error);
 #line 57
       break;
 #line 57
@@ -9979,9 +9993,9 @@ static inline void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 }
 
 # 49 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
-inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__txDone(uint8_t arg_0xffff9d71e220){
+inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__txDone(uint8_t arg_0xffff95d68220){
 #line 49
-  switch (arg_0xffff9d71e220) {
+  switch (arg_0xffff95d68220) {
 #line 49
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 49
@@ -9991,7 +10005,7 @@ inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 #line 49
     default:
 #line 49
-      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__txDone(arg_0xffff9d71e220);
+      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__txDone(arg_0xffff95d68220);
 #line 49
       break;
 #line 49
@@ -10404,9 +10418,9 @@ static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(
 }
 
 # 39 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/chips/msp430/timer/Msp430TimerEvent.nc"
-static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(uint8_t arg_0xffff9de24900){
+static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(uint8_t arg_0xffff96471900){
 #line 39
-  switch (arg_0xffff9de24900) {
+  switch (arg_0xffff96471900) {
 #line 39
     case 0:
 #line 39
@@ -10458,7 +10472,7 @@ static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(uint8_t a
 #line 39
     default:
 #line 39
-      /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(arg_0xffff9de24900);
+      /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(arg_0xffff96471900);
 #line 39
       break;
 #line 39
@@ -10762,9 +10776,9 @@ static void SchedulerBasicP__TaskBasic__default__runTask(uint8_t id)
 }
 
 # 75 "/home/francesco/iot/tinyos-release-tinyos-2_1_2/tos/interfaces/TaskBasic.nc"
-static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0xffff9df6d650){
+static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0xffff965ba650){
 #line 75
-  switch (arg_0xffff9df6d650) {
+  switch (arg_0xffff965ba650) {
 #line 75
     case /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__fired:
 #line 75
@@ -10822,7 +10836,7 @@ static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0xffff9df6d650){
 #line 75
     default:
 #line 75
-      SchedulerBasicP__TaskBasic__default__runTask(arg_0xffff9df6d650);
+      SchedulerBasicP__TaskBasic__default__runTask(arg_0xffff965ba650);
 #line 75
       break;
 #line 75
