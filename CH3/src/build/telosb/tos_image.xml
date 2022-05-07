@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
-    <platform>telosb</platform>
-    <hostname>tux-box</hostname>
-    <userhash>72388C21L</userhash>
-    <deluge_support>no</deluge_support>
+    <uidhash>24EE3C2CL</uidhash>
     <appname>AppCh3C</appname>
-    <timestamp>6275138FL</timestamp>
-    <uidhash>9A8A4155L</uidhash>
-    <username>francesco</username>
+    <userhash>2C00343AL</userhash>
+    <deluge_support>no</deluge_support>
+    <username>user</username>
+    <platform>telosb</platform>
+    <hostname>user-iot</hostname>
+    <timestamp>627531FFL</timestamp>
   </ident>
   <image format="ihex">
 :104000005542200135D0085A82450E123140003900
