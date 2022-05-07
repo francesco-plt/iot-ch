@@ -17,6 +17,9 @@ implementation {
 
 	uint32_t pers_code = 0;
 	uint32_t dbg_flag = 1;	// 0: no debug, 1: debug
+	uint32_t led0_state;
+	uint32_t led1_state;
+	uint32_t led2_state;
 
 	uint32_t updateLedState(uint32_t status) {
 		if(status == 0) {
@@ -38,9 +41,9 @@ implementation {
 		// the get() function from the Leds.nc interface does not work,
 		// it always returns the same value. To circumevent this problem,
 		// I'm tracking the status of the led manually.
-		uint32_t led0_state = 0;
-		uint32_t led1_state = 0;
-		uint32_t led2_state = 0;
+		led0_state = 0;
+		led1_state = 0;
+		led2_state = 0;
 		
 		// start timer, hit every T_INT milliseconds
 		call Timer.startPeriodic(T_INT);
@@ -72,7 +75,7 @@ implementation {
 		}
 		else if(rem == 1) {
 			call Leds.led1Toggle();
-			led1_state = updateLedState(led0_state);
+			led1_state = updateLedState(led1_state);
 			if(dbg_flag) {
 				printf(", led1 toggled\n");
 				printfflush();
@@ -80,7 +83,7 @@ implementation {
 		}
 		else if(rem == 2) {
 			call Leds.led2Toggle();
-			led2_state = updateLedState(led0_state);
+			led2_state = updateLedState(led2_state);
 			if(dbg_flag) {
 				printf(", led2 toggled\n");
 				printfflush();
