@@ -1,5 +1,5 @@
 /*
-	@author Francesco Pallotta - 2022
+	@author: Francesco Pallotta - 2022
 */
 #include "printf.h"
 #include <inttypes.h>
@@ -61,7 +61,6 @@ implementation {
 		if(dbg_flag) {
 			printf("DEBUG: remainder: %" PRIu32, rem);
 		}
-		// printfflush();
 
 		// according to the remainder of the iteration,
 		//toggling the correspondent LED

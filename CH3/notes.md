@@ -110,7 +110,7 @@ $ make $SENSOR_NAME sim
 
 A `build` folder containing an executable will be created with the `make` command. When can then execute that file using Cooja (Contiki simulator):
 
-![Schermata 2022-05-05 alle 11.10.11](assets/Schermata 2022-05-05 alle 11.10.11.png)
+![](assets/cooja1.png)
 
 1. file-> new simulation
 2. motes->add motes->create new mote type-> sky mote
@@ -178,21 +178,21 @@ A `build` folder containing an executable will be created with the `make` comman
 
 Run `$ node-red`, go to `localhost:8080`. Now in Cooja:
 
-<img src="assets/Schermata 2022-05-05 alle 11.35.25.png" alt="Schermata 2022-05-05 alle 11.35.25" style="zoom:50%;" />
+![](assets/cooja2.png)
 
 Select `Serial Socket SERVER`, go back to node red and create a new `TCP Node` which will be used to capture the stream sent by Cooja. Setup the node like the following:
 
-<img src="assets/Schermata 2022-05-05 alle 11.38.11.png" alt="Schermata 2022-05-05 alle 11.38.11" style="zoom:67%;" />
+![](assets/nodered1.png)
 
 We connect to the socket and we start the Cooja simulation:
 
 * Cooja:
 
-  ![Schermata 2022-05-05 alle 11.40.03](assets/Schermata 2022-05-05 alle 11.40.03.png)
+  ![](assets/cooja3.png)
 
 * Node red:
 
-  ![Schermata 2022-05-05 alle 11.40.26](assets/Schermata 2022-05-05 alle 11.40.26.png)
+  ![](assets/nodered2.png)
 
 ## Notes
 
