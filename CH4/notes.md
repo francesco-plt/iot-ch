@@ -37,11 +37,44 @@ Mote 2:
 ## Rules
 
 1. Each message (REQ/RESP) must be acknowledged using the built-in ACK module
-2. 
+2. Upon receipt of the Xth REQ-ACK message:
+   1. Mote #1 stops to send requests
+   2. The exercise is done
+3. Use the  module `PacketAcknowledgements` to  send the  ACKs.
+
+X = [last digit of person code] + 1
+
+Y = person code without last three digits and first three digits.
 
 ![](assets/flow.png)
 
 ## Notes
 
-* There's a draft on the VM and also on Webeep which we can use to write the code for the challenge: `sendAckC.nc`.
+* There's a draft on the VM and also on Webeep which we can use to write the code for the challenge: `SendACK_template/sendAckC.nc`.
+
 * TOSSIM and Node-Red cannot interact right now, so we'll not use Node-Red for this challenge.
+
+* The simulation with TOSSIM:
+
+  * Mote #1 at time 0
+  * Mote #2 after Y seconds
+
+* Only one message type containing:
+
+  * `msg_type`: REQ/RESP
+  * `msg_counter`: incremental integer
+  * `value`: value from the fake sensor
+
+* Compile the mote’s code:
+
+  ```shell
+  $ make micaz sim
+  ```
+
+* Run the simulation
+
+  ```shell
+  $ python RunSimulationScript.py
+  ```
+
+  
