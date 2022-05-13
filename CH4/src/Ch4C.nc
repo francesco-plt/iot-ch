@@ -37,7 +37,8 @@ module Ch4C {
 	uint8_t X = 2;	// last digit + 1
 	uint8_t Y = 83;	// middle numbers of Persona Code
 	uint8_t counter = 0;
-	uint8_t rec_id = 0;
+	uint8_t mote2_id = 2;
+	uint8_t mote1_id = 1;
 	bool locked;
 	message_t packet;
 
@@ -55,7 +56,7 @@ module Ch4C {
 		} else {
 			req_msg_t* m = (req_msg_t*)call Packet.getPayload(&packet, sizeof(req_msg_t));
 			if (m == NULL) {
-				return;
+				dbgerror("CH4App", "CH4App [Mote 1]: Packet.getPayload failed");
 			}
 
 			/* 1. Preparing the msg
@@ -63,6 +64,7 @@ module Ch4C {
 			containins:
 			1. Message type: REQ
 			2. An incremental counter */
+			counter++;
 			m->type = REQ;
 			m->counter = counter;
 
@@ -70,8 +72,8 @@ module Ch4C {
 			call PacketAcknowledgements.requestAck(&packet);
 
 			// sending request
-			if (call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(req_msg_t)) == SUCCESS) {
-				dbg("Ch4C", "Ch4C: [%hhu] REQ packet sent.\n", counter);	
+			if (call AMSend.send(mote1_id, &packet, sizeof(req_msg_t)) == SUCCESS) {
+				dbg("CH4App", "CH4App [Mote 1]: [%hhu] REQ packet sent.\n", counter);	
 				locked = TRUE;
 			}
 		}
@@ -94,7 +96,7 @@ module Ch4C {
 	//***************** Boot interface ********************//
 
 	event void Boot.booted() {
-		dbg("boot","Application booted.\n");
+		dbg("boot", "boot: Application booted.\n");
 		call AMControl.start();
 	}
 
@@ -104,17 +106,18 @@ module Ch4C {
 	// after starting the radio we start the timer
 	event void AMControl.startDone(error_t err){
     	if (err == SUCCESS) {
+			// looks like tinyOS already prints this by itself
+			// dbg("radio", "radio: Radio booted.\n");
       		call MilliTimer.startPeriodic(TIMER_PERIOD_MILLI);
     	}
     	else {
-	  		dbg("boot","Error starting the timer.\n");
+	  		dbgerror("boot", "boot: Error starting the timer.\n");
       		call AMControl.start();
     	}
 }
   
-	event void AMControl.stopDone(error_t err){
-    	// for now it does nothing
-	}
+	// needed otherwise it will throw an error
+	event void AMControl.stopDone(error_t err) {}
 
 
 	//***************** MilliTimer interface ********************//
@@ -122,10 +125,9 @@ module Ch4C {
 	event void MilliTimer.fired() {
 
 		counter++;
-		dbg("Ch4C", "Ch4C: timer fired, counter now is %hhu.\n", counter);
+		dbg("CH4App", "CH4App: timer fired, counter now is %hhu.\n\n", counter);
 
 		// sending the request
-		dbg("Ch4C", "Ch4C: sending request.\n");
     	sendReq();
 	}
   
@@ -137,21 +139,23 @@ module Ch4C {
 
 		// 1. checking if the packet was sent
 		if (err == SUCCESS) {
-			dbg("Ch4C", "Ch4C: packet sent.\n");
 			locked = FALSE;
+		} else {
+			dbgerror("CH4App", "CH4App: packet not sent.\n");
 		}
 
 		// 2. checking if the ACK is received
 		if(call PacketAcknowledgements.wasAcked(buf)) {
 
-			dbg("Ch4C", "Ch4C: ACK received.\n");
+			dbg("CH4App", "CH4App: ACK received.\n");
 			// 2a. if yes, stopping the timer according to my id
 			if (counter == Y) {
-				dbg("Ch4C", "Ch4C: %hhu-th iteration reached.\nStopping timer.\n", rec_id);
+				dbg("CH4App", "CH4App: %hhu-th iteration reached.\nStopping timer.\n", counter);
 				call MilliTimer.stop();
 			}
 		} else {
 			// 2b. else sending again the request
+			dbgerror("CH4App", "CH4App: ACK not received. Sending again the request...\n");
 			sendReq();
 		}
   	}
@@ -162,24 +166,23 @@ module Ch4C {
 	// This event is triggered when a message is received
   	event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
 \
-		dbg("Ch4C", "Received packet of length %hhu.\n", len);
+		dbg("CH4App", "CH4App: Received packet of length %hhu.\n", len);
 		
 		// checking that the packet has the right size
 		if (len != sizeof(resp_msg_t)) {
-			dbg("Ch4C", "Received packet of wrong size.\n");
+			dbgerror("CH4App", "CH4App: Received packet of wrong size.\n");
 		}
 		else {
 			// 1. reading the message
 			resp_msg_t *m = (resp_msg_t*)payload;
-			// counter = buf->counter;
 
 			// 2. checking that the packet is a request
 			if (m->type == REQ) {
-				dbg("Ch4C", "Received request. sending response...\n");
+				dbg("CH4App", "CH4App [Mote 2]:Request received\n");
 				sendResp();
 			}
 			else {
-				dbg("Ch4C", "Received packet of unknown type %hhu.\n", m->type);
+				dbg("CH4App", "CH4App: Received packet of unknown type %hhu.\n", m->type);
 			}
 		}
   	}
@@ -193,17 +196,17 @@ module Ch4C {
 	// 1. preparing the response
 	resp_msg_t* m = (resp_msg_t*)call Packet.getPayload(&packet, sizeof(resp_msg_t));
 	if (m == NULL) {
-		dbg("Ch4C", "Error getting the payload.\n");
+		dbg("CH4App", "CH4App: readDone - error getting the payload.\n");
 		return;
 	}
 	m->type = RESP;
 	m->counter_cpy = counter;
 	m->value = data;
 	// printing packet content
-	dbg("Ch4C", "Ch4C: packet content: type %hhu, counter %hhu, data %hhu.\n", m->type, m->counter, m->data);
+	dbg("CH4App", "CH4App: packet content - type %hhu, counter %hhu, data %hhu.\n", m->type, m->counter_cpy, m->value);
 
 	// 2. sending back the response with a unicast message
-	dbg("Ch4C", "Sending response.\n");
-	call AMSend.send(rec_id, &packet, sizeof(resp_msg_t));
+	dbg("CH4App", "CH4App [Mote 2]: Sending response.\n");
+	call AMSend.send(mote2_id, &packet, sizeof(resp_msg_t));
   }
 }

@@ -1,3 +1,2 @@
 COMPONENT=AppCh4C
 include $(MAKERULES)
-
