@@ -37,7 +37,7 @@ module Ch4C {
 	uint8_t X = 2;	// last digit + 1
 	uint8_t Y = 83;	// middle numbers of Persona Code
 	uint8_t counter = 0;
-	uint8_t rec_id = 0;
+	uint8_t rec_id = 2;
 	bool locked;
 	message_t packet;
 
@@ -171,7 +171,6 @@ module Ch4C {
 		else {
 			// 1. reading the message
 			resp_msg_t *m = (resp_msg_t*)payload;
-			// counter = buf->counter;
 
 			// 2. checking that the packet is a request
 			if (m->type == REQ) {
