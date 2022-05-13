@@ -28,12 +28,10 @@ print "Initializing simulator....";
 t.init();
 
 
-#simulation_outfile = "simulation.txt";
-#print "Saving sensors simulation output to:", simulation_outfile;
-#simulation_out = open(simulation_outfile, "w");
-
-#out = open(simulation_outfile, "w");
-out = sys.stdout;
+simulation_outfile = "tossim.log"
+print "Saving sensors simulation output to:", simulation_outfile
+out = open(simulation_outfile, "w");
+#out = sys.stdout;
 
 #Add debug channel
 print "Activate debug message on channel init"
@@ -42,16 +40,18 @@ print "Activate debug message on channel boot"
 t.addChannel("boot",out);
 print "Activate debug message on channel radio"
 t.addChannel("radio",out);
-print "Activate debug message on channel radio_send"
-t.addChannel("radio_send",out);
+# print "Activate debug message on channel radio_send"
+# t.addChannel("radio_send",out);
 print "Activate debug message on channel radio_ack"
 t.addChannel("radio_ack",out);
 print "Activate debug message on channel radio_rec"
 t.addChannel("radio_rec",out);
-print "Activate debug message on channel radio_pack"
-t.addChannel("radio_pack",out);
+# print "Activate debug message on channel radio_pack"
+# t.addChannel("radio_pack",out);
 print "Activate debug message on channel role"
 t.addChannel("role",out);
+print "Activate debug message on channel CH4App"
+t.addChannel("CH4App",out);
 
 
 print "Creating node 1...";
@@ -106,7 +106,7 @@ for i in range(1, 3):
 
 print "Start simulation with TOSSIM! \n\n\n";
 
-for i in range(0,1200):
+for i in range(0,600):
 	t.runNextEvent()
 	
 print "\n\n\nSimulation finished!";
