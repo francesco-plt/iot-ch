@@ -13,7 +13,7 @@ implementation {
 
   /****** COMPONENTS *****/
   components MainC, Ch4C as App;
-  components LedsC, ActiveMessageC;
+  components LedsC, ActiveMessageC, LocalTimeMilliC;
   //add the other components here
   components new AMSenderC(AM_RADIO_COUNT_MSG);
   components new AMReceiverC(AM_RADIO_COUNT_MSG);
@@ -33,13 +33,13 @@ implementation {
 
   App.AMControl -> ActiveMessageC;
   App.PacketAcknowledgements -> ActiveMessageC;
-  App.AMControl -> ActiveMessageC;
 
   //Interfaces to access package fields
   App.Packet -> AMSenderC;
 
   //Timer interface
   App.MilliTimer -> TimerMilliC;
+  App.LocalTime -> LocalTimeMilliC;
 
   //Fake Sensor read
   App.Read -> FakeSensorC;

@@ -24,9 +24,9 @@ module Ch4C {
 		// control interface
 		interface SplitControl as AMControl;
 
-		// timer and leds interfaces
+		// timer and time interfaces
 		interface Timer<TMilli> as MilliTimer;
-		interface Leds;
+		interface LocalTime<TMilli>;
 
 		//interface for the fake sensor
 		interface Read<uint16_t>;
@@ -37,8 +37,8 @@ module Ch4C {
 	uint8_t X = 2;	// last digit + 1
 	uint8_t Y = 83;	// middle numbers of Persona Code
 	uint8_t counter = 0;
-	uint8_t mote2_id = 2;
-	uint8_t mote1_id = 1;
+	am_addr_t mote2_id = 2;
+	am_addr_t mote1_id = 1;
 	bool locked;
 	message_t packet;
 
@@ -52,11 +52,12 @@ module Ch4C {
 	void sendReq() {
 
 		if (locked) {
+			dbgerror("CH4App", "CH4App:Cannot send request, radio unavalaible\n");
       		return;
 		} else {
 			req_msg_t* m = (req_msg_t*)call Packet.getPayload(&packet, sizeof(req_msg_t));
 			if (m == NULL) {
-				dbgerror("CH4App", "CH4App [Mote 1]: Packet.getPayload failed");
+				dbgerror("CH4App", "CH4App [Mote %d]: Packet.getPayload failed", TOS_NODE_ID);
 			}
 
 			/* 1. Preparing the msg
@@ -64,7 +65,6 @@ module Ch4C {
 			containins:
 			1. Message type: REQ
 			2. An incremental counter */
-			counter++;
 			m->type = REQ;
 			m->counter = counter;
 
@@ -72,8 +72,7 @@ module Ch4C {
 			call PacketAcknowledgements.requestAck(&packet);
 
 			// sending request
-			if (call AMSend.send(mote1_id, &packet, sizeof(req_msg_t)) == SUCCESS) {
-				dbg("CH4App", "CH4App [Mote 1]: [%hhu] REQ packet sent.\n", counter);	
+			if (call AMSend.send(mote1_id, &packet, sizeof(req_msg_t)) == SUCCESS) {	
 				locked = TRUE;
 			}
 		}
@@ -96,7 +95,7 @@ module Ch4C {
 	//***************** Boot interface ********************//
 
 	event void Boot.booted() {
-		dbg("boot", "boot: Application booted.\n");
+		dbg("boot", "boot: [%d] Application booted.\n", call LocalTime.get());
 		call AMControl.start();
 	}
 
@@ -106,15 +105,17 @@ module Ch4C {
 	// after starting the radio we start the timer
 	event void AMControl.startDone(error_t err){
     	if (err == SUCCESS) {
-			// looks like tinyOS already prints this by itself
-			// dbg("radio", "radio: Radio booted.\n");
-      		call MilliTimer.startPeriodic(TIMER_PERIOD_MILLI);
+			dbg("radio","[%d] Radio on on node %d!\n", call LocalTime.get(), TOS_NODE_ID);
+			if(TOS_NODE_ID == 1){
+				dbg("timer", "timer: [Mote %d] starting timer...\n", TOS_NODE_ID);
+      			call MilliTimer.startPeriodic(TIMER_PERIOD_MILLI);
+			}
     	}
     	else {
-	  		dbgerror("boot", "boot: Error starting the timer.\n");
+	  		dbgerror("boot", "boot: Error starting the radio.\n");
       		call AMControl.start();
     	}
-}
+	}
   
 	// needed otherwise it will throw an error
 	event void AMControl.stopDone(error_t err) {}
@@ -124,11 +125,13 @@ module Ch4C {
   
 	event void MilliTimer.fired() {
 
+		dbg("timer", "timer: [%d] timer fired, counter now is %hhu.\n\n", call LocalTime.get(), counter);
 		counter++;
-		dbg("CH4App", "CH4App: timer fired, counter now is %hhu.\n\n", counter);
 
 		// sending the request
-    	sendReq();
+    	if(TOS_NODE_ID == 1){
+			sendReq();
+		}
 	}
   
 
@@ -137,26 +140,33 @@ module Ch4C {
 	// This event is triggered when a message is sent
 	event void AMSend.sendDone(message_t* buf,error_t err) {
 
+		dbg("radio", "radio: [%d] Sending done. ACK RESULT: %d\n", call LocalTime.get(), call PacketAcknowledgements.wasAcked(buf));
+		if(TOS_NODE_ID != 1) {
+			return;
+		}
+
 		// 1. checking if the packet was sent
-		if (err == SUCCESS) {
+		if (&packet == buf) {
 			locked = FALSE;
+			dbg("CH4App", "CH4App [Mote %d]: [%hhu] REQ packet sent.\n", TOS_NODE_ID, counter);
 		} else {
 			dbgerror("CH4App", "CH4App: packet not sent.\n");
 		}
 
 		// 2. checking if the ACK is received
-		if(call PacketAcknowledgements.wasAcked(buf)) {
+		if(call PacketAcknowledgements.wasAcked(buf) == TRUE) {
 
 			dbg("CH4App", "CH4App: ACK received.\n");
 			// 2a. if yes, stopping the timer according to my id
 			if (counter == Y) {
 				dbg("CH4App", "CH4App: %hhu-th iteration reached.\nStopping timer.\n", counter);
+				dbg("timer", "timer: timer stopped.\n");
 				call MilliTimer.stop();
 			}
 		} else {
 			// 2b. else sending again the request
-			dbgerror("CH4App", "CH4App: ACK not received. Sending again the request...\n");
-			sendReq();
+			dbgerror("CH4App", "CH4App: ACK not received. Waiting for next timer call...\n");
+			// sendReq();
 		}
   	}
 
@@ -165,26 +175,34 @@ module Ch4C {
 
 	// This event is triggered when a message is received
   	event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
-\
-		dbg("CH4App", "CH4App: Received packet of length %hhu.\n", len);
+
+		if(TOS_NODE_ID != 2) {
+			return buf;
+		}
+
+		dbg("CH4App", "CH4App: [node %d] Received packet of length %hhu.\n", len, TOS_NODE_ID);
 		
 		// checking that the packet has the right size
 		if (len != sizeof(resp_msg_t)) {
 			dbgerror("CH4App", "CH4App: Received packet of wrong size.\n");
-		}
-		else {
+			return buf;
+		} else {
+			
 			// 1. reading the message
 			resp_msg_t *m = (resp_msg_t*)payload;
 
 			// 2. checking that the packet is a request
-			if (m->type == REQ) {
-				dbg("CH4App", "CH4App [Mote 2]:Request received\n");
-				sendResp();
-			}
-			else {
+			if (m->type != REQ) {
 				dbg("CH4App", "CH4App: Received packet of unknown type %hhu.\n", m->type);
+				return NULL;
 			}
+			dbg("CH4App", "CH4App [Mote %d]:Request received\n", TOS_NODE_ID);
+			// then sending response
+			sendResp();
 		}
+
+
+		return buf;
   	}
   
   
@@ -192,9 +210,10 @@ module Ch4C {
 
 	// This event is triggered when the fake sensor finishes to read (after a Read.read())
 	event void Read.readDone(error_t result, uint16_t data) {
-
+	
 	// 1. preparing the response
 	resp_msg_t* m = (resp_msg_t*)call Packet.getPayload(&packet, sizeof(resp_msg_t));
+	dbg("CH4App", "CH4App: [Mote %d] Read done.\n", TOS_NODE_ID);
 	if (m == NULL) {
 		dbg("CH4App", "CH4App: readDone - error getting the payload.\n");
 		return;
@@ -206,7 +225,7 @@ module Ch4C {
 	dbg("CH4App", "CH4App: packet content - type %hhu, counter %hhu, data %hhu.\n", m->type, m->counter_cpy, m->value);
 
 	// 2. sending back the response with a unicast message
-	dbg("CH4App", "CH4App [Mote 2]: Sending response.\n");
+	dbg("CH4App", "CH4App [Mote %d]: Sending response.\n", TOS_NODE_ID);
 	call AMSend.send(mote2_id, &packet, sizeof(resp_msg_t));
   }
 }
