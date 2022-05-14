@@ -170,12 +170,12 @@ module Ch4C {
 		// 1. reading the message
 		ch4_msg_t *m = (ch4_msg_t*)payload;
 		
-		if(len != sizeof(ch4_msg_t)){
+		if(len != sizeof(ch4_msg_t) && TOS_NODE_ID == 2) {
 			dbgerror("CH4App", "CH4App: [Mote %d] Received packet of unknown size %hhu.\n", TOS_NODE_ID, len);
 		}
 
 		// 2. checking that the packet is a request
-		if (m->type != REQ) {
+		if (m->type != REQ && TOS_NODE_ID == 2) {
 			dbgerror("CH4App", "CH4App: [Mote %d] Received packet of unknown type %hhu.\n", TOS_NODE_ID, m->type);
 			return buf;
 		}
