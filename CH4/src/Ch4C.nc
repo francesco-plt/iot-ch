@@ -65,8 +65,8 @@ module Ch4C {
 			call PacketAcknowledgements.requestAck(&packet);
 
 			// 3. sending request
-			// dbg("CH4App", "CH4App: [Mote %d] packet content:\n\ttype: %hhu\n\tcounter: %hhu\n\tdata: %hhu\n", TOS_NODE_ID, m->type, m->counter, m->value);
 			if (call AMSend.send(mote2_id, &packet, sizeof(ch4_msg_t)) == SUCCESS) {	
+				dbg("CH4App", "CH4App: [Mote %d] REQ sent\n", TOS_NODE_ID);
 				locked = TRUE;
 			}
 		}
@@ -136,10 +136,17 @@ module Ch4C {
 	// This event is triggered when a message is sent
 	event void AMSend.sendDone(message_t* buf,error_t err) {
 
+		
 		// 1. checking if the packet was sent
 		if (&packet == buf) {
+
+			ch4_msg_t* m = (ch4_msg_t*)call Packet.getPayload(&buf, sizeof(ch4_msg_t));
 			locked = FALSE;
-			dbg("CH4App", "CH4App [Mote %d]: [%hhu] REQ packet sent.\n", TOS_NODE_ID, counter);
+			if(m->type == REQ) {
+				dbg("CH4App", "CH4App [Mote %d]: REQ packet sent.\n", TOS_NODE_ID);
+			} else if(m->type == RESP) {
+				dbg("CH4App", "CH4App [Mote %d]: RESP packet sent.\n", TOS_NODE_ID);
+			}
 		} else {
 			dbgerror("CH4App", "CH4App: packet not sent.\n");
 		}
@@ -147,13 +154,15 @@ module Ch4C {
 		// 2. checking if the ACK is received
 		if(call PacketAcknowledgements.wasAcked(buf)) {
 
-			X  = X - 1;
-			dbg("CH4App", "CH4App: ACK received, X is now %hhu\n", X);
-			// 2a. if yes, stopping the timer according to my id
-			if (X == 0) {
-				dbg("CH4App", "CH4App: Stopping timer.\n");
-				dbg("timer", "timer: timer stopped.\n");
-				call MilliTimer.stop();
+			if(TOS_NODE_ID == 1) {
+				X  = X - 1;
+				dbg("CH4App", "CH4App: [Mote %d] REQ-ACK received, X is now %hhu\n", TOS_NODE_ID, X);
+				// 2a. if yes, stopping the timer according to my id
+				if (X == 0) {
+					dbg("CH4App", "CH4App: Stopping timer.\n");
+					dbg("timer", "timer: timer stopped.\n");
+					call MilliTimer.stop();
+				}
 			}
 		} else {
 			// 2b. else sending again the request
@@ -179,11 +188,18 @@ module Ch4C {
 			dbgerror("CH4App", "CH4App: [Mote %d] Received packet of unknown type %hhu.\n", TOS_NODE_ID, m->type);
 			return buf;
 		}
-		dbg("CH4App", "CH4App [Mote %d]: Request received\n", TOS_NODE_ID);
+		if(m->type == REQ) {
+			dbg("CH4App", "CH4App [Mote %d]: REQ received\n", TOS_NODE_ID);
+		}
+		if(m->type == RESP) {
+			dbg("CH4App", "CH4App [Mote %d]: RESP received\n", TOS_NODE_ID);
+		}
 		counter_cpy = m->counter;
 
 		// then sending response
-		sendResp();
+		if(TOS_NODE_ID == 2) {
+			sendResp();
+		}
 
 		return buf;
   	}
@@ -194,7 +210,6 @@ module Ch4C {
 	// This event is triggered when the fake sensor finishes to read (after a Read.read())
 	event void Read.readDone(error_t result, uint16_t data) {
 	
-	// 1. preparing the response
 	ch4_msg_t* m = (ch4_msg_t*)call Packet.getPayload(&packet, sizeof(ch4_msg_t));
 	dbg("CH4App", "CH4App: [Mote %d] Read done.\n", TOS_NODE_ID);
 	if (m == NULL) {
@@ -202,15 +217,16 @@ module Ch4C {
 		return;
 	}
 
+	// 1. preparing the response
 	m->type = RESP;
 	m->counter = counter_cpy;
 	m->value = data;
 	dbg("CH4App", "CH4App: [Mote %d] packet content:\n\ttype: %hhu\n\tcounter: %hhu\n\tdata: %hhu\n", TOS_NODE_ID, m->type, m->counter, m->value);
 
 	// 2. sending back the response with a unicast message
-	dbg("CH4App", "CH4App [Mote %d]: Sending response.\n", TOS_NODE_ID);
 	call PacketAcknowledgements.requestAck(&packet);
 	if (call AMSend.send(mote1_id, &packet, sizeof(ch4_msg_t)) == SUCCESS) {	
+		dbg("CH4App", "CH4App [Mote %d]: RESP sent\n", TOS_NODE_ID);
 		locked = TRUE;
 	}
   }
