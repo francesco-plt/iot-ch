@@ -188,6 +188,57 @@ Rest of the file:
   }
 ```
 
+#### `topology.txt`
+
+```
+1 2 -60.0
+2 1 -60.0
+```
+
+Line 1 = mote #1 can communicate with mote #2, line 2 = vice versa. -60 is the channel gain.
+
+#### `RunSimulationScript.py`
+
+We can either output the simulation to `stdout` or to a file.
+
+```python
+simulation_outfile = "tossim.log"
+print "Saving sensors simulation output to:", simulation_outfile
+out = open(simulation_outfile, "w");
+#out = sys.stdout;
+```
+
+We can have different debug channels:
+
+```python
+#Add debug channel
+print "Activate debug message on channel init"
+t.addChannel("init",out);
+print "Activate debug message on channel boot"
+t.addChannel("boot",out);
+print "Activate debug message on channel radio"
+t.addChannel("radio",out);
+print "Activate debug message on channel radio_send"
+t.addChannel("radio_send",out);
+print "Activate debug message on channel radio_ack"
+t.addChannel("radio_ack",out);
+print "Activate debug message on channel radio_rec"
+t.addChannel("radio_rec",out);
+print "Activate debug message on channel radio_pack"
+t.addChannel("radio_pack",out);
+print "Activate debug message on channel role"
+t.addChannel("role",out);
+print "Activate debug message on channel CH4App"
+t.addChannel("CH4App",out);
+```
+
+Here we define how many events should run:
+
+```python
+for i in range(0,1200):
+	t.runNextEvent()
+```
+
 ## The challenge itself
 
 Challenge structure:
@@ -273,4 +324,6 @@ Suppose you got a arm64 vm running locally in UTM and another remote machine whi
 1. `sshfs` to mount the x86 vm (running on a remote x86 device) in the (locally executing on UTM) arm64 vm
 2. Open vscode on macOS, use `ssh` to open the arm64 folder in which the x86 filesystem is mounted to edit the source code
 3. To compile, run `make micaz` in a local terminal of the x86 vm. To do this you can directly `ssh` into the remote x86 vm
+
+Unfortunately we cannot use the vscode ssh remote extension directly into the x86 vm because of the different architecture between the Mac and the vm. [It's a known limitation of the extension](https://github.com/microsoft/vscode-remote-release/issues/1529).
 
