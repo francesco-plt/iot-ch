@@ -1,11 +1,3 @@
-/**
- *  Source file for implementation of module Ch4C in which
- *  the node 1 send a request to node 2 until it receives a response.
- *  The reply message contains a reading from the Fake Sensor.
- *
- *  @author Luca Pietro Borsani
- */
-
 #include "Ch4C.h"
 #include "Timer.h"
 
@@ -37,6 +29,7 @@ module Ch4C {
 	uint8_t X = 2;	// last digit + 1
 	uint8_t Y = 83;	// middle numbers of Persona Code
 	uint8_t counter = 0;
+	uint8_t counter_cpy;
 	am_addr_t mote2_id = 2;
 	am_addr_t mote1_id = 1;
 	bool locked;
@@ -55,7 +48,7 @@ module Ch4C {
 			dbgerror("CH4App", "CH4App:Cannot send request, radio unavalaible\n");
       		return;
 		} else {
-			req_msg_t* m = (req_msg_t*)call Packet.getPayload(&packet, sizeof(req_msg_t));
+			ch4_msg_t* m = (ch4_msg_t*)call Packet.getPayload(&packet, sizeof(ch4_msg_t));
 			if (m == NULL) {
 				dbgerror("CH4App", "CH4App [Mote %d]: Packet.getPayload failed", TOS_NODE_ID);
 			}
@@ -71,8 +64,9 @@ module Ch4C {
 			// 2. Setting the ACK flag for the message using the PacketAcknowledgements interface
 			call PacketAcknowledgements.requestAck(&packet);
 
-			// sending request
-			if (call AMSend.send(mote2_id, &packet, sizeof(req_msg_t)) == SUCCESS) {	
+			// 3. sending request
+			// dbg("CH4App", "CH4App: [Mote %d] packet content:\n\ttype: %hhu\n\tcounter: %hhu\n\tdata: %hhu\n", TOS_NODE_ID, m->type, m->counter, m->value);
+			if (call AMSend.send(mote2_id, &packet, sizeof(ch4_msg_t)) == SUCCESS) {	
 				locked = TRUE;
 			}
 		}
@@ -83,6 +77,7 @@ module Ch4C {
 
 	// This function is called when we receive the REQ message
 	void sendResp() {
+
 		/* This function is called when we receive the REQ message.
 		* Nothing to do here. 
 		* `call Read.read()` reads from the fake sensor.
@@ -95,6 +90,7 @@ module Ch4C {
 	//***************** Boot interface ********************//
 
 	event void Boot.booted() {
+
 		dbg("boot", "boot: [%d] Application booted.\n", call LocalTime.get());
 		call AMControl.start();
 	}
@@ -103,7 +99,8 @@ module Ch4C {
 	//***************** SplitControl interface ********************//
 
 	// after starting the radio we start the timer
-	event void AMControl.startDone(error_t err){
+	event void AMControl.startDone(error_t err) {
+
     	if (err == SUCCESS) {
 			dbg("radio","[%d] Radio on on node %d!\n", call LocalTime.get(), TOS_NODE_ID);
 			if(TOS_NODE_ID == 1){
@@ -117,7 +114,6 @@ module Ch4C {
     	}
 	}
   
-	// needed otherwise it will throw an error
 	event void AMControl.stopDone(error_t err) {}
 
 
@@ -161,8 +157,7 @@ module Ch4C {
 			}
 		} else {
 			// 2b. else sending again the request
-			dbgerror("CH4App", "CH4App: ACK not received [%d]. Waiting for next timer call...\n", call PacketAcknowledgements.wasAcked(buf));
-			// sendReq();
+			dbgerror("CH4App", "CH4App: ACK not received. Waiting for next timer call...\n");
 		}
   	}
 
@@ -173,22 +168,20 @@ module Ch4C {
   	event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
 
 		// 1. reading the message
-		resp_msg_t *m = (resp_msg_t*)payload;
+		ch4_msg_t *m = (ch4_msg_t*)payload;
 		
-		dbg("CH4App", "CH4App: [node %d] Received packet of length %hhu.\n", len, TOS_NODE_ID);
-		
-		// checking that the packet has the right size
-		// if (len != sizeof(resp_msg_t)) {
-		// 	dbgerror("CH4App", "CH4App: Received packet of wrong size.\n");
-		// 	return buf;
-		// }
+		if(len != sizeof(ch4_msg_t)){
+			dbgerror("CH4App", "CH4App: [Mote %d] Received packet of unknown size %hhu.\n", TOS_NODE_ID, len);
+		}
 
 		// 2. checking that the packet is a request
 		if (m->type != REQ) {
-			dbg("CH4App", "CH4App: Received packet of unknown type %hhu.\n", m->type);
+			dbgerror("CH4App", "CH4App: [Mote %d] Received packet of unknown type %hhu.\n", TOS_NODE_ID, m->type);
 			return buf;
 		}
-		dbg("CH4App", "CH4App [Mote %d]:Request received\n", TOS_NODE_ID);
+		dbg("CH4App", "CH4App [Mote %d]: Request received\n", TOS_NODE_ID);
+		counter_cpy = m->counter;
+
 		// then sending response
 		sendResp();
 
@@ -202,22 +195,22 @@ module Ch4C {
 	event void Read.readDone(error_t result, uint16_t data) {
 	
 	// 1. preparing the response
-	resp_msg_t* m = (resp_msg_t*)call Packet.getPayload(&packet, sizeof(resp_msg_t));
+	ch4_msg_t* m = (ch4_msg_t*)call Packet.getPayload(&packet, sizeof(ch4_msg_t));
 	dbg("CH4App", "CH4App: [Mote %d] Read done.\n", TOS_NODE_ID);
 	if (m == NULL) {
 		dbg("CH4App", "CH4App: readDone - error getting the payload.\n");
 		return;
 	}
+
 	m->type = RESP;
-	m->counter_cpy = counter;
+	m->counter = counter_cpy;
 	m->value = data;
-	// printing packet content
-	dbg("CH4App", "CH4App: packet content - type %hhu, counter %hhu, data %hhu.\n", m->type, m->counter_cpy, m->value);
+	dbg("CH4App", "CH4App: [Mote %d] packet content:\n\ttype: %hhu\n\tcounter: %hhu\n\tdata: %hhu\n", TOS_NODE_ID, m->type, m->counter, m->value);
 
 	// 2. sending back the response with a unicast message
 	dbg("CH4App", "CH4App [Mote %d]: Sending response.\n", TOS_NODE_ID);
 	call PacketAcknowledgements.requestAck(&packet);
-	if (call AMSend.send(mote1_id, &packet, sizeof(resp_msg_t)) == SUCCESS) {	
+	if (call AMSend.send(mote1_id, &packet, sizeof(ch4_msg_t)) == SUCCESS) {	
 		locked = TRUE;
 	}
   }
