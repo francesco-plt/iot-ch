@@ -72,7 +72,7 @@ module Ch4C {
 			call PacketAcknowledgements.requestAck(&packet);
 
 			// sending request
-			if (call AMSend.send(mote1_id, &packet, sizeof(req_msg_t)) == SUCCESS) {	
+			if (call AMSend.send(mote2_id, &packet, sizeof(req_msg_t)) == SUCCESS) {	
 				locked = TRUE;
 			}
 		}
@@ -140,11 +140,6 @@ module Ch4C {
 	// This event is triggered when a message is sent
 	event void AMSend.sendDone(message_t* buf,error_t err) {
 
-		dbg("radio", "radio: [%d] Sending done. ACK RESULT: %d\n", call LocalTime.get(), call PacketAcknowledgements.wasAcked(buf));
-		if(TOS_NODE_ID != 1) {
-			return;
-		}
-
 		// 1. checking if the packet was sent
 		if (&packet == buf) {
 			locked = FALSE;
@@ -154,18 +149,19 @@ module Ch4C {
 		}
 
 		// 2. checking if the ACK is received
-		if(call PacketAcknowledgements.wasAcked(buf) == TRUE) {
+		if(call PacketAcknowledgements.wasAcked(buf)) {
 
-			dbg("CH4App", "CH4App: ACK received.\n");
+			X  = X - 1;
+			dbg("CH4App", "CH4App: ACK received, X is now %hhu\n", X);
 			// 2a. if yes, stopping the timer according to my id
-			if (counter == Y) {
-				dbg("CH4App", "CH4App: %hhu-th iteration reached.\nStopping timer.\n", counter);
+			if (X == 0) {
+				dbg("CH4App", "CH4App: Stopping timer.\n");
 				dbg("timer", "timer: timer stopped.\n");
 				call MilliTimer.stop();
 			}
 		} else {
 			// 2b. else sending again the request
-			dbgerror("CH4App", "CH4App: ACK not received. Waiting for next timer call...\n");
+			dbgerror("CH4App", "CH4App: ACK not received [%d]. Waiting for next timer call...\n", call PacketAcknowledgements.wasAcked(buf));
 			// sendReq();
 		}
   	}
@@ -176,31 +172,25 @@ module Ch4C {
 	// This event is triggered when a message is received
   	event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
 
-		if(TOS_NODE_ID != 2) {
-			return buf;
-		}
-
+		// 1. reading the message
+		resp_msg_t *m = (resp_msg_t*)payload;
+		
 		dbg("CH4App", "CH4App: [node %d] Received packet of length %hhu.\n", len, TOS_NODE_ID);
 		
 		// checking that the packet has the right size
-		if (len != sizeof(resp_msg_t)) {
-			dbgerror("CH4App", "CH4App: Received packet of wrong size.\n");
+		// if (len != sizeof(resp_msg_t)) {
+		// 	dbgerror("CH4App", "CH4App: Received packet of wrong size.\n");
+		// 	return buf;
+		// }
+
+		// 2. checking that the packet is a request
+		if (m->type != REQ) {
+			dbg("CH4App", "CH4App: Received packet of unknown type %hhu.\n", m->type);
 			return buf;
-		} else {
-			
-			// 1. reading the message
-			resp_msg_t *m = (resp_msg_t*)payload;
-
-			// 2. checking that the packet is a request
-			if (m->type != REQ) {
-				dbg("CH4App", "CH4App: Received packet of unknown type %hhu.\n", m->type);
-				return NULL;
-			}
-			dbg("CH4App", "CH4App [Mote %d]:Request received\n", TOS_NODE_ID);
-			// then sending response
-			sendResp();
 		}
-
+		dbg("CH4App", "CH4App [Mote %d]:Request received\n", TOS_NODE_ID);
+		// then sending response
+		sendResp();
 
 		return buf;
   	}
@@ -226,6 +216,9 @@ module Ch4C {
 
 	// 2. sending back the response with a unicast message
 	dbg("CH4App", "CH4App [Mote %d]: Sending response.\n", TOS_NODE_ID);
-	call AMSend.send(mote2_id, &packet, sizeof(resp_msg_t));
+	call PacketAcknowledgements.requestAck(&packet);
+	if (call AMSend.send(mote1_id, &packet, sizeof(resp_msg_t)) == SUCCESS) {	
+		locked = TRUE;
+	}
   }
 }
